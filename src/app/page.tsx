@@ -46,42 +46,87 @@ export default function Home() {
 					</button>
 				</div>
 			</div>
-			<div className='flex flex-col items-center w-full mt-20'>
-				<div className='w-11/12 md:w-9/12 lg:w-6/12 flex items-center my-4'>
-					<div className='w-5/6'>
-					   <h3 className='text-2xl font-bold mb-4'>A virtual stage for everything</h3>
-					   <p className='text-sm'>Step into our virtual world and experience the thrill of live performances, exhibitions, workshops, and so much more, all from the comfort of your own home. No longer limited by physical boundaries, our virtual stage breaks down barriers and brings people together from every corner of the globe.</p>
+			<div className="flex flex-col items-center w-full mt-20">
+				<div className="w-11/12 md:w-9/12 lg:w-6/12 flex items-center my-4">
+					<div className="w-5/6">
+						<h3 className="text-2xl font-bold mb-4">
+							A virtual stage for everything
+						</h3>
+						<p className="text-sm">
+							Step into our virtual world and experience the thrill of live
+							performances, exhibitions, workshops, and so much more, all from
+							the comfort of your own home. No longer limited by physical
+							boundaries, our virtual stage breaks down barriers and brings
+							people together from every corner of the globe.
+						</p>
 					</div>
-					<img src="/assets/undraw1.svg" alt="" className='w-[200px] h-[200px] m-2'/>
+					<img
+						src="/assets/undraw1.svg"
+						alt=""
+						className="w-[200px] h-[200px] m-2"
+					/>
 				</div>
-				<div className='w-11/12 md:w-9/12 lg:w-6/12 flex items-center my-4'>
-				    <img src="/assets/undraw1.svg" alt="" className='w-[200px] h-[200px] m-2'/>
-					<div className='w-5/6'>
-					   <h3 className='text-2xl font-bold mb-4'>Encrypted chat on-demand</h3>
-					   <p className='text-sm'>SEnd-to-end encryption guarantees that only you and the intended recipients can access the messages exchanged. This means that not even our platform administrators or any third parties can decipher or intercept your communications. Your data remains confidential and inaccessible to anyone else.</p>
+				<div className="w-11/12 md:w-9/12 lg:w-6/12 flex items-center my-4">
+					<img
+						src="/assets/undraw1.svg"
+						alt=""
+						className="w-[200px] h-[200px] m-2"
+					/>
+					<div className="w-5/6">
+						<h3 className="text-2xl font-bold mb-4">
+							Encrypted chat on-demand
+						</h3>
+						<p className="text-sm">
+							SEnd-to-end encryption guarantees that only you and the intended
+							recipients can access the messages exchanged. This means that not
+							even our platform administrators or any third parties can decipher
+							or intercept your communications. Your data remains confidential
+							and inaccessible to anyone else.
+						</p>
 					</div>
 				</div>
-				<div className='w-11/12 md:w-9/12 lg:w-6/12 flex items-center my-4'>
-					<div className='w-5/6'>
-					   <h3 className='text-2xl font-bold mb-4'>Follow the creators you love</h3>
-					   <p className='text-sm'>Our platform is designed to foster a symbiotic relationship between creators and their fans, cultivating a vibrant ecosystem where creativity thrives. Together, we celebrate the power of art and honor the journeys of those who bring it to life.</p>
+				<div className="w-11/12 md:w-9/12 lg:w-6/12 flex items-center my-4">
+					<div className="w-5/6">
+						<h3 className="text-2xl font-bold mb-4">
+							Follow the creators you love
+						</h3>
+						<p className="text-sm">
+							Our platform is designed to foster a symbiotic relationship
+							between creators and their fans, cultivating a vibrant ecosystem
+							where creativity thrives. Together, we celebrate the power of art
+							and honor the journeys of those who bring it to life.
+						</p>
 					</div>
-					<img src="/assets/undraw1.svg" alt="" className='w-[200px] h-[200px] m-2'/>
+					<img
+						src="/assets/undraw1.svg"
+						alt=""
+						className="w-[200px] h-[200px] m-2"
+					/>
 				</div>
-				<div className='w-11/12 md:w-9/12 lg:w-6/12 flex items-center my-4'>
-				    <img src="/assets/undraw1.svg" alt="" className='w-[200px] h-[200px] m-2'/>
-					<div className='w-5/6'>
-					   <h3 className='text-2xl font-bold mb-4'>In live merch</h3>
-					   <p className='text-sm'>Immerse yourself in the live stream and explore the merchandise offerings seamlessly, all within the same app. No need to navigate to external websites or wait for separate purchasing processes. It's a convenient and integrated shopping experience designed to enhance your enjoyment while supporting the creators you love.</p>
+				<div className="w-11/12 md:w-9/12 lg:w-6/12 flex items-center my-4">
+					<img
+						src="/assets/undraw1.svg"
+						alt=""
+						className="w-[200px] h-[200px] m-2"
+					/>
+					<div className="w-5/6">
+						<h3 className="text-2xl font-bold mb-4">In live merch</h3>
+						<p className="text-sm">
+							Immerse yourself in the live stream and explore the merchandise
+							offerings seamlessly, all within the same app. No need to navigate
+							to external websites or wait for separate purchasing processes.
+							It's a convenient and integrated shopping experience designed to
+							enhance your enjoyment while supporting the creators you love.
+						</p>
 					</div>
 				</div>
 			</div>
 			<div className="h-40 w-full flex items-center justify-center">
-			<button className="w-44 h-8 mx-4 bg-blue-950 text-white hover:border-2 hover:border-blue-950 hover:bg-white hover:text-black ">
-				Try it today
-			</button>
+				<button className="w-44 h-8 mx-4 bg-blue-950 text-white hover:border-2 hover:border-blue-950 hover:bg-white hover:text-black ">
+					Try it today
+				</button>
 			</div>
-			<div className='h-52 w-full bg-blue-100'></div>
+			<div className="h-52 w-full bg-blue-100"></div>
 		</main>
 	);
 }
