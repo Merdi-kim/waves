@@ -1,32 +1,31 @@
-import Link from 'next/link';
+import Footer from '@/components/Footer';
+import Button from '@/components/ui/Button';
 
 export default function Home() {
 	return (
 		<main>
 			<div className="h-36 w-full">
-				<div className="h-20 w-full flex items-center justify-evenly">
+				<div className="h-20 w-full flex items-center justify-between max-w-[100rem] mx-auto px-5">
 					<div></div>
 					<div className="font-extrabold text-3xl">
 						<i>Waves</i>
 					</div>
-					<button className="w-32 h-8 bg-blue-950 text-white">
-						Try for Free
-					</button>
+					<Button title="Try for Free" />
 				</div>
-				<div className="h-16 px-28">
-					<div className="">
-						<span className="px-10">Home</span>
-						<span className="px-10">About</span>
-						<span className="px-10">Contact</span>
+				<div className="h-16 max-w-[100rem] mx-auto px-5">
+					<div className="flex gap-32">
+						<span className="cursor-pointer">Home</span>
+						<span className="cursor-pointer">About</span>
+						<span className="cursor-pointer">Contact</span>
 					</div>
 				</div>
 			</div>
-			<div className="h-[calc(100vh-9rem)] ">
-				<div className="h-3/5 w-5/6 py-20 px-28">
-					<h2 className="font-extrabold text-6xl mb-12">
+			<div className="h-[calc(100vh-9rem)]">
+				<div className="h-3/5 py-20 max-w-[100rem] mx-auto px-5">
+					<h2 className="w-4/5 font-extrabold text-6xl mb-12 text-left">
 						Censorship-resistant video streaming platform
 					</h2>
-					<p className="w-4/6">
+					<p className="w-2/4">
 						<i>
 							Say goodbye to content restrictions and enjoy uninterrupted
 							streaming. Our platform utilizes advanced encryption and
@@ -37,15 +36,13 @@ export default function Home() {
 						</i>
 					</p>
 				</div>
-				<div className="h-2/5 px-28 bg-[url('/assets/wave.svg')] bg-cover mt-5 w-full">
-					<button className="w-32 h-8 mx-4 bg-blue-950 text-white hover:border-2 hover:border-blue-950 hover:bg-white hover:text-black ">
-						Try
-					</button>
-					<button className="w-32 h-8 mx-4 border-2 border-blue-950 hover:bg-blue-950 hover:text-white">
-						Learn more
-					</button>
+				<div className="w-full flex h-fit max-w-[100rem] gap-5 mx-auto px-5">
+					<Button variant="primary" title="Try" />
+					<Button variant="secondary" title="Learn more" />
 				</div>
+				<div className="h-2/5 bg-[url('/assets/wave.svg')] bg-cover mt-5 gap-4"></div>
 			</div>
+			<Footer />
 		</main>
 	);
 }
