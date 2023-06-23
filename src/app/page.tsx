@@ -134,12 +134,11 @@ export default function Home() {
 				</button>
 			</div>
 			<div className="h-52 w-full bg-blue-100"></div>
-				<div className="w-full flex h-fit max-w-[100rem] gap-5 mx-auto px-5">
+				<div className="w-full flex justify-center h-fit max-w-[100rem] gap-5 mx-auto px-5">
 					<Button variant="primary" title="Try" />
 					<Button variant="secondary" title="Learn more" />
 				</div>
 				<div className="h-2/5 bg-[url('/assets/wave.svg')] bg-cover mt-5 gap-4"></div>
-			</div>
 			<Footer />
 		</main>
 	);
