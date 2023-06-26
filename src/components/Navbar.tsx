@@ -21,7 +21,7 @@ const Navbar = () => {
             <div className='flex items-center'>
                 <Image height={20} width={20} src={'/assets/cross.svg'} className='h-10 w-10 mr-3' alt='new'/>
                 <Image height={20} width={20} src={'/assets/bell.svg'} className='h-4 w-4 mr-3' alt='notifications'/>
-                <Image height={20} width={20} src={'/assets/profile.svg'} className='h-10 w-10 ml-3 rounded-full bg-gray-600' alt='profile'/>
+                <Image height={20} width={20} src={'/assets/dummy/fakeProfile.jpeg'} className='h-10 w-10 ml-3 rounded-full bg-gray-600' alt='profile'/>
             </div>
             }
         </div>
