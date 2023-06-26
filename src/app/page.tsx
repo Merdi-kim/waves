@@ -1,22 +1,18 @@
-
 import Footer from '@/components/Footer';
+import Sidebar from '@/components/SideBar';
 import Button from '@/components/ui/Button';
-
 
 export default function Home() {
 	return (
 		<main>
 			<div className="h-36 w-full">
-
 				<div className="h-20 w-full flex items-center justify-between max-w-[100rem] mx-auto px-5">
-
 					<div></div>
 					<div className="font-extrabold text-3xl">
 						<i>Waves</i>
 					</div>
 
 					<Button title="Try for Free" />
-
 				</div>
 				<div className="h-16 max-w-[100rem] mx-auto px-5">
 					<div className="flex gap-32">
@@ -33,7 +29,6 @@ export default function Home() {
 						Censorship-resistant video streaming platform
 					</h2>
 					<p className="w-2/4">
-
 						<i>
 							Say goodbye to content restrictions and enjoy uninterrupted
 							streaming. Our platform utilizes advanced encryption and
@@ -134,12 +129,15 @@ export default function Home() {
 				</button>
 			</div>
 			<div className="h-52 w-full bg-blue-100"></div>
-				<div className="w-full flex justify-center h-fit max-w-[100rem] gap-5 mx-auto px-5">
-					<Button variant="primary" title="Try" />
-					<Button variant="secondary" title="Learn more" />
-				</div>
-				<div className="h-2/5 bg-[url('/assets/wave.svg')] bg-cover mt-5 gap-4"></div>
+			<div className="w-full flex justify-center h-fit max-w-[100rem] gap-5 mx-auto px-5">
+				<Button variant="primary" title="Try" />
+				<Button variant="secondary" title="Learn more" />
+			</div>
+			<div className="h-2/5 bg-[url('/assets/wave.svg')] bg-cover mt-5 gap-4"></div>
 			<Footer />
+			{/* TODO: --------------- This component is place here for testing --------------- */}
+			<Sidebar />
+			{/* ------------------------------------------------------------------------------ */}
 		</main>
 	);
 }
