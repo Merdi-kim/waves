@@ -1,5 +1,6 @@
 import HeroBanner from '@/components/HeroBanner';
 import Navbar from '@/components/Navbar';
+import PopularCategoriesFeed from '@/components/PopularCategoriesFeed';
 import React from 'react';
 
 const Home = () => {
@@ -9,6 +10,11 @@ const Home = () => {
 			<div className="w-10/12">
 				<Navbar />
 				<HeroBanner />
+				<div className="px-10">
+					{/** live sessions list */}
+
+					<PopularCategoriesFeed />
+				</div>
 			</div>
 		</div>
 	);
