@@ -1,22 +1,18 @@
-
 import Footer from '@/components/Footer';
 import Button from '@/components/ui/Button';
-
+import Image from 'next/image';
 
 export default function Home() {
 	return (
 		<main>
 			<div className="h-36 w-full">
-
 				<div className="h-20 w-full flex items-center justify-between max-w-[100rem] mx-auto px-5">
-
 					<div></div>
 					<div className="font-extrabold text-3xl">
 						<i>Waves</i>
 					</div>
 
 					<Button title="Try for Free" />
-
 				</div>
 				<div className="h-16 max-w-[100rem] mx-auto px-5">
 					<div className="flex gap-32">
@@ -33,7 +29,6 @@ export default function Home() {
 						Censorship-resistant video streaming platform
 					</h2>
 					<p className="w-2/4">
-
 						<i>
 							Say goodbye to content restrictions and enjoy uninterrupted
 							streaming. Our platform utilizes advanced encryption and
@@ -67,14 +62,18 @@ export default function Home() {
 							people together from every corner of the globe.
 						</p>
 					</div>
-					<img
+					<Image
+						height={200}
+						width={200}
 						src="/assets/undraw1.svg"
 						alt=""
 						className="w-[200px] h-[200px] m-2"
 					/>
 				</div>
 				<div className="w-11/12 md:w-9/12 lg:w-6/12 flex items-center my-4">
-					<img
+					<Image
+						height={200}
+						width={200}
 						src="/assets/undraw1.svg"
 						alt=""
 						className="w-[200px] h-[200px] m-2"
@@ -104,14 +103,18 @@ export default function Home() {
 							and honor the journeys of those who bring it to life.
 						</p>
 					</div>
-					<img
+					<Image
+						height={200}
+						width={200}
 						src="/assets/undraw1.svg"
 						alt=""
 						className="w-[200px] h-[200px] m-2"
 					/>
 				</div>
 				<div className="w-11/12 md:w-9/12 lg:w-6/12 flex items-center my-4">
-					<img
+					<Image
+						height={200}
+						width={200}
 						src="/assets/undraw1.svg"
 						alt=""
 						className="w-[200px] h-[200px] m-2"
@@ -134,11 +137,11 @@ export default function Home() {
 				</button>
 			</div>
 			<div className="h-52 w-full bg-blue-100"></div>
-				<div className="w-full flex justify-center h-fit max-w-[100rem] gap-5 mx-auto px-5">
-					<Button variant="primary" title="Try" />
-					<Button variant="secondary" title="Learn more" />
-				</div>
-				<div className="h-2/5 bg-[url('/assets/wave.svg')] bg-cover mt-5 gap-4"></div>
+			<div className="w-full flex justify-center h-fit max-w-[100rem] gap-5 mx-auto px-5">
+				<Button variant="primary" title="Try" />
+				<Button variant="secondary" title="Learn more" />
+			</div>
+			<div className="h-2/5 bg-[url('/assets/wave.svg')] bg-cover mt-5 gap-4"></div>
 			<Footer />
 		</main>
 	);
