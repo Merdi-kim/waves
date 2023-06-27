@@ -1,4 +1,3 @@
-import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import LiveIndicator from './ui/LiveIndicator';
@@ -29,7 +28,7 @@ const HeroBanner = () => {
 				</div>
 				<div className="h-44 w-full flex items-center">
 					{dummyLives.map((live, index) => (
-						<Link href={'/nv'}>
+						<Link href={'/nv'} key={index}>
 							<Image
 								height={30}
 								width={30}
