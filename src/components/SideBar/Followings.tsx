@@ -5,25 +5,25 @@ import { FaCircleChevronDown } from 'react-icons/fa6';
 const mockProfiles = [
 	{
 		username: 'Jonatha Z.',
-		profile_url: '/assets/profile-1.png',
+		profile_url: '/assets/dummy/profile-1.png',
 		isLive: true,
 		isOnline: true,
 	},
 	{
 		username: 'Merkim dev',
-		profile_url: '/assets/profile-2.jpeg',
+		profile_url: '/assets/dummy/profile-2.jpeg',
 		isLive: false,
 		isOnline: true,
 	},
 	{
 		username: 'Ax23.',
-		profile_url: '/assets/profile-1.png',
+		profile_url: '/assets/dummy/profile-1.png',
 		isLive: true,
 		isOnline: true,
 	},
 	{
 		username: 'Wakanda',
-		profile_url: '/assets/profile-2.jpeg',
+		profile_url: '/assets/dummy/profile-2.jpeg',
 		isLive: false,
 		isOnline: true,
 	},
