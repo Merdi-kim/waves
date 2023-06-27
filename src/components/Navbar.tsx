@@ -1,6 +1,6 @@
 'use client';
 import Image from 'next/image';
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 const Navbar = () => {
 	const [isConnected, setIsConnected] = useState(false);

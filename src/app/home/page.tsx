@@ -1,7 +1,6 @@
 import HeroBanner from '@/components/HeroBanner';
 import Navbar from '@/components/Navbar';
 import PopularCategoriesFeed from '@/components/PopularCategoriesFeed';
-import React from 'react';
 
 const Home = () => {
 	return (

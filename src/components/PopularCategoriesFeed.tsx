@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import React from 'react';
 
 const PopularCategoriesFeed = () => {
 	const dummyChannels = Array(4).fill('');
