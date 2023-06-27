@@ -1,6 +1,8 @@
 import Footer from '@/components/Footer';
+import Sidebar from '@/components/SideBar';
 import Button from '@/components/ui/Button';
 import Image from 'next/image';
+
 
 export default function Home() {
 	return (
@@ -143,6 +145,9 @@ export default function Home() {
 			</div>
 			<div className="h-2/5 bg-[url('/assets/wave.svg')] bg-cover mt-5 gap-4"></div>
 			<Footer />
+			{/* TODO: --------------- This component is place here for testing --------------- */}
+			<Sidebar />
+			{/* ------------------------------------------------------------------------------ */}
 		</main>
 	);
 }
