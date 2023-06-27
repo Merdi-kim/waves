@@ -1,4 +1,4 @@
-import React, { Dispatch, SetStateAction } from 'react'
+import { Dispatch, SetStateAction } from 'react'
 import LensProfile from '../ui/LensProfile'
 import Image from 'next/image'
 
