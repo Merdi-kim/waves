@@ -6,7 +6,7 @@ const LiveIndicator = () => {
 			<Image
 				height={20}
 				width={20}
-				src='/assets/live.svg'
+				src="/assets/live.svg"
 				className="h-5 w-5 mr-2"
 				alt="live"
 			/>

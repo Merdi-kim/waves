@@ -4,19 +4,18 @@ import { FaWifi } from 'react-icons/fa';
 import { BsCheckCircleFill } from 'react-icons/bs';
 import formatNumber from '@/utils/formatNumber';
 
-interface LiveChannelCardProps {
+type LiveChannelCardProps = {
 	image_url: string;
 	title: string;
-	liveTitle: string;
 	numberOfWatches: number;
 	profile: {
 		image: string;
 		name: string;
 	};
-}
+};
 
 const LiveChannelCard: FC<LiveChannelCardProps> = (props) => {
-	const { image_url, title, liveTitle, numberOfWatches, profile } = props;
+	const { image_url, title, numberOfWatches, profile } = props;
 
 	return (
 		<div className="bg-slate-900 h-fit w-fit flex flex-col gap-6 rounded-3xl cursor-pointer">
@@ -38,14 +37,13 @@ const LiveChannelCard: FC<LiveChannelCardProps> = (props) => {
 						height={50}
 						className="rounded-full"
 					/>
-					<div className="fle">
+					<div>
 						<p className="flex items-center gap-3">
 							{profile.name}
 							<span>
 								<BsCheckCircleFill className="text-green-500 w-6 h-6" />
 							</span>
 						</p>
-						<p>{liveTitle}</p>
 					</div>
 				</div>
 			</div>
