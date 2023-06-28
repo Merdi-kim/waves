@@ -1,8 +1,8 @@
 'use client';
 import Image from 'next/image';
-import { useState } from 'react';
+import { Dispatch, SetStateAction, useState } from 'react';
 
-const Navbar = () => {
+const Navbar = ({closeModal}:{closeModal: Dispatch<SetStateAction<boolean>>}) => {
 	const [isConnected, setIsConnected] = useState(false);
 
 	return (
@@ -32,8 +32,8 @@ const Navbar = () => {
 				/>
 			</div>
 			<div className="w-[150px] lg:w-[200px] h-4 flex items-center">
-				{isConnected ? (
-					<button className="pb-1 font-bold border-b-2 border-b-slate-500 hover:font-extrabold transition-all hover:text-blue-600">
+				{!isConnected ? (
+					<button onClick={() => closeModal(false)} className="pb-1 font-bold border-b-2 border-b-slate-500 hover:font-extrabold transition-all hover:text-blue-600">
 						Start your journey
 					</button>
 				) : (
