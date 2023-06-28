@@ -1,9 +1,16 @@
 'use client';
 import Image from 'next/image';
 import { Dispatch, SetStateAction, useState } from 'react';
+import { LoginButton } from './ui/ConnectButton';
+import { useAccount } from 'wagmi';
 
-const Navbar = ({closeModal}:{closeModal: Dispatch<SetStateAction<boolean>>}) => {
-	const [isConnected, setIsConnected] = useState(false);
+const Navbar = ({
+	closeModal,
+}: {
+	closeModal: Dispatch<SetStateAction<boolean>>;
+}) => {
+	//const [isConnected, setIsConnected] = useState(false);
+	const {isConnected} = useAccount()
 
 	return (
 		<div className="h-20 w-full flex flex-col sm:flex-row items-center px-4 lg:px-10 justify-between">
@@ -33,9 +40,7 @@ const Navbar = ({closeModal}:{closeModal: Dispatch<SetStateAction<boolean>>}) =>
 			</div>
 			<div className="w-[150px] lg:w-[200px] h-4 flex items-center">
 				{!isConnected ? (
-					<button onClick={() => closeModal(false)} className="pb-1 font-bold border-b-2 border-b-slate-500 hover:font-extrabold transition-all hover:text-blue-600">
-						Start your journey
-					</button>
+					<LoginButton closeModal={closeModal} />
 				) : (
 					<div className="flex items-center">
 						<Image
