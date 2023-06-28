@@ -2,6 +2,8 @@ import Footer from '@/components/Footer';
 import Sidebar from '@/components/SideBar';
 import Button from '@/components/ui/Button';
 
+import Image from 'next/image';
+
 export default function Home() {
 	return (
 		<main>
@@ -62,14 +64,18 @@ export default function Home() {
 							people together from every corner of the globe.
 						</p>
 					</div>
-					<img
+					<Image
+						height={200}
+						width={200}
 						src="/assets/undraw1.svg"
 						alt=""
 						className="w-[200px] h-[200px] m-2"
 					/>
 				</div>
 				<div className="w-11/12 md:w-9/12 lg:w-6/12 flex items-center my-4">
-					<img
+					<Image
+						height={200}
+						width={200}
 						src="/assets/undraw1.svg"
 						alt=""
 						className="w-[200px] h-[200px] m-2"
@@ -99,14 +105,18 @@ export default function Home() {
 							and honor the journeys of those who bring it to life.
 						</p>
 					</div>
-					<img
+					<Image
+						height={200}
+						width={200}
 						src="/assets/undraw1.svg"
 						alt=""
 						className="w-[200px] h-[200px] m-2"
 					/>
 				</div>
 				<div className="w-11/12 md:w-9/12 lg:w-6/12 flex items-center my-4">
-					<img
+					<Image
+						height={200}
+						width={200}
 						src="/assets/undraw1.svg"
 						alt=""
 						className="w-[200px] h-[200px] m-2"
