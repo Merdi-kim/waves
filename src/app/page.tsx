@@ -1,6 +1,8 @@
 import Footer from '@/components/Footer';
 import Sidebar from '@/components/SideBar';
 import Button from '@/components/ui/Button';
+import Image from 'next/image';
+
 
 import Image from 'next/image';
 

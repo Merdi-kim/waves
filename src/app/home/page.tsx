@@ -1,6 +1,8 @@
 import HeroBanner from '@/components/HeroBanner';
 import Navbar from '@/components/Navbar';
+
 import PopularCategoriesFeed from '@/components/PopularCategoriesFeed';
+
 
 const Home = () => {
 	return (
