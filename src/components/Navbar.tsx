@@ -55,7 +55,7 @@ const Navbar = ({closeModal}:{closeModal: Dispatch<SetStateAction<boolean>>}) =>
 						<Image
 							height={20}
 							width={20}
-							src='/assets/dummy/fakeProfile.jpeg'
+							src="/assets/dummy/fakeProfile.jpeg"
 							className="h-10 w-10 ml-3 rounded-full bg-gray-600"
 							alt="profile"
 						/>
