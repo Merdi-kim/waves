@@ -55,7 +55,7 @@ export const LoginButton = ({
 									</button>
 								);
 							}
-							closeModal(false)
+							closeModal(false);
 						})()}
 					</div>
 				);

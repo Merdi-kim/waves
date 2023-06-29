@@ -11,7 +11,7 @@ export const CREATE_PROFILE = `
     }
  }
 `;
-export const GET_PROFILES = (address:string) => `
+export const GET_PROFILES = (address: string) => `
 query Profiles {
   profiles(request: { ownedBy: ["${address}"], limit: 10 }) {
     items {
@@ -102,7 +102,7 @@ query Profiles {
 }
 `;
 
-export const SEARCH_FOR_PROFILE = (searchInput:string) => `query Search {
+export const SEARCH_FOR_PROFILE = (searchInput: string) => `query Search {
   search(request: {
     query: ${searchInput},
     type: PROFILE,
