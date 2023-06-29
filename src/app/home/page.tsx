@@ -13,10 +13,10 @@ const Home = () => {
 	const [closeModal, setCloseModal] = useState(true)
 	return (
 		<div className="min-h-full w-full flex">
-			<div className="w-2/12">
+			<div className="w-3/12">
 				<Sidebar />
 			</div>
-			<div className="w-10/12">
+			<div className="w-9/12">
 				<Navbar  closeModal={setCloseModal} />
 				<HeroBanner />
 				<div className="px-10">
