@@ -1,6 +1,6 @@
 'use client';
 import Image from 'next/image';
-import { Dispatch, SetStateAction, useState } from 'react';
+import { Dispatch, SetStateAction } from 'react';
 import { LoginButton } from './ui/ConnectButton';
 import { useAccount } from 'wagmi';
 
@@ -9,8 +9,7 @@ const Navbar = ({
 }: {
 	closeModal: Dispatch<SetStateAction<boolean>>;
 }) => {
-	//const [isConnected, setIsConnected] = useState(false);
-	const {isConnected} = useAccount()
+	const { isConnected } = useAccount();
 
 	return (
 		<div className="h-20 w-full flex flex-col sm:flex-row items-center px-4 lg:px-10 justify-between">
