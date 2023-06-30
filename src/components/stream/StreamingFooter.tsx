@@ -10,7 +10,7 @@ import { HiOutlineHandRaised } from 'react-icons/hi2';
 
 const StreamingFooter = () => {
 	return (
-		<div className="text-white fixed bottom-0 w-full flex justify-between items-center">
+		<div className="text-white fixed bottom-0 w-full flex justify-between items-center px-10 pb-10">
 			<div className="flex items-center gap-5">
 				<PiMicrophoneSlash className="w-6 h-6 cursor-pointer" />
 				<PiVideoCameraLight className="w-6 h-6 cursor-pointer" />
