@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import HeroBanner from '@/components/HeroBanner';
 import LiveSession from '@/components/LiveSession';
 import Navbar from '@/components/Navbar';
@@ -8,16 +8,15 @@ import { useState } from 'react';
 import PopularCategoriesFeed from '@/components/PopularCategoriesFeed';
 import Sidebar from '@/components/SideBar';
 
-
 const Home = () => {
-	const [closeModal, setCloseModal] = useState(true)
+	const [closeModal, setCloseModal] = useState(true);
 	return (
 		<div className="min-h-full w-full flex">
 			<div className="w-2/12">
 				<Sidebar />
 			</div>
 			<div className="w-10/12">
-				<Navbar  closeModal={setCloseModal} />
+				<Navbar closeModal={setCloseModal} />
 				<HeroBanner />
 				<div className="px-10">
 					{/** live sessions list */}
@@ -25,7 +24,7 @@ const Home = () => {
 					<PopularCategoriesFeed />
 				</div>
 			</div>
-			{!closeModal && <LoginModal closeModal={setCloseModal}/>}
+			{!closeModal && <LoginModal closeModal={setCloseModal} />}
 		</div>
 	);
 };
