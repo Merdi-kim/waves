@@ -1,8 +1,6 @@
-import { Dispatch, SetStateAction, useEffect, useState } from 'react';
+import { Dispatch, SetStateAction, useState } from 'react';
 import LensProfile from '../ui/LensProfile';
 import Image from 'next/image';
-import { authenticate, generateChallenge, getProfiles } from '@/lib/lensClient';
-import { useAccount, useSignMessage } from 'wagmi';
 
 const LoginModal = ({
 	closeModal,
@@ -10,30 +8,6 @@ const LoginModal = ({
 	closeModal: Dispatch<SetStateAction<boolean>>;
 }) => {
 	const [names, setNames] = useState<Array<string>>([]);
-	const { address } = useAccount();
-	const { data: signature, signMessage } = useSignMessage();
-
-	useEffect(() => {
-		const fetchProfiles = async () => {
-			try {
-				const challengeResponse = await generateChallenge(address!);
-				signMessage(challengeResponse.data.challenge.text);
-				const { data } = await authenticate(address!, signature!);
-				const localStorage = window.localStorage;
-				localStorage.setItem('auth_token', data.authenticate.accessToken);
-				const { data: profilesData } = await getProfiles(address!);
-				const names = profilesData.profiles.items.map(
-					(profile: any) => profile.handle
-				);
-				setNames(names);
-			} catch (err) {
-				console.log(err);
-			}
-		};
-		fetchProfiles();
-	}, [address]);
-
-	console.log(names);
 
 	return (
 		<div className="absolute flex items-center justify-center top-0 h-screen w-screen bg-black bg-opacity-90 overflow-hidden">
@@ -50,12 +24,12 @@ const LoginModal = ({
 				</div>
 				<h2 className="font-bold text-xl mb-6">Join the Wave</h2>
 				<div className=" mb-6 flex flex-wrap justify-evenly">
-					{names.length == 0
+					{names.length != 0
 						? names.map((name, index) => (
 								<LensProfile key={index} name={name} />
 						  ))
 						: Array(3)
-								.fill('')
+								.fill('No name found')
 								.map((name, index) => <LensProfile key={index} name={name} />)}
 				</div>
 				<button className="w-[250px] h-8 bg-blue-600 rounded-lg">Login</button>

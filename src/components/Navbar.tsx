@@ -1,15 +1,39 @@
 'use client';
+import { authenticate, generateChallenge, getProfiles } from '@/lib/lensClient';
+import { ethers } from 'ethers';
 import Image from 'next/image';
-import { Dispatch, SetStateAction } from 'react';
-import { LoginButton } from './ui/ConnectButton';
-import { useAccount } from 'wagmi';
+import { Dispatch, SetStateAction, useState } from 'react';
 
 const Navbar = ({
 	closeModal,
 }: {
 	closeModal: Dispatch<SetStateAction<boolean>>;
 }) => {
-	const { isConnected } = useAccount();
+
+	
+
+	const login = async() => {
+		try {
+			//@ts-ignore
+			const provider = new ethers.providers.Web3Provider(window.ethereum);
+		    const [address] = await provider.send("eth_requestAccounts", [])
+		    const challengeResponse = await generateChallenge(address!);
+			const signer = provider.getSigner()
+			const signature = await signer.signMessage(challengeResponse.data.challenge.text)
+			const { data } = await authenticate(address, signature!);
+			const localStorage = window.localStorage;
+			localStorage.setItem('auth_token', data.authenticate.accessToken);
+			const { data: profilesData } = await getProfiles(address!);
+			const names = profilesData.profiles.items.map(
+				(profile: any) => profile.handle
+			);
+			
+		    closeModal(false)
+
+		}catch(err) {
+			console.log(err)
+		}
+	}
 
 	return (
 		<div className="h-20 w-full flex flex-col sm:flex-row items-center px-4 lg:px-10 justify-between">
@@ -38,8 +62,12 @@ const Navbar = ({
 				/>
 			</div>
 			<div className="w-[150px] lg:w-[200px] h-4 flex items-center">
-				{!isConnected ? (
-					<LoginButton closeModal={closeModal} />
+				{true ? (<button
+					onClick={login}
+					className="pb-1 font-bold border-b-2 border-b-slate-500 hover:font-extrabold transition-all hover:text-blue-600"
+				>
+					Start your journey
+				</button>
 				) : (
 					<div className="flex items-center">
 						<Image
