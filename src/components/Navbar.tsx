@@ -1,14 +1,28 @@
 'use client';
-import { authenticate, generateChallenge, getProfiles } from '@/lib/lensClient';
+import {
+	authenticate,
+	generateChallenge,
+	getProfiles,
+} from '@/lib/lens/lensClient';
+import { lensProfiles, selectedHandle } from '@/lib/recoil';
+import { formatPicture } from '@/utils/formatPicture';
 import { ethers } from 'ethers';
 import Image from 'next/image';
-import { Dispatch, SetStateAction, useState } from 'react';
+import { Dispatch, SetStateAction } from 'react';
+import { useRecoilState, useRecoilValue } from 'recoil';
 
 const Navbar = ({
 	closeModal,
 }: {
 	closeModal: Dispatch<SetStateAction<boolean>>;
 }) => {
+	const [, setLensProfiles] = useRecoilState(lensProfiles);
+	const profile = useRecoilValue(selectedHandle);
+	let profilePicture = '/assets/dummy/fakeProfile.jpeg';
+	if (profile != null) {
+		profilePicture = formatPicture(profile?.picture);
+	}
+
 	const login = async () => {
 		try {
 			//@ts-ignore
@@ -23,10 +37,7 @@ const Navbar = ({
 			const localStorage = window.localStorage;
 			localStorage.setItem('auth_token', data.authenticate.accessToken);
 			const { data: profilesData } = await getProfiles(address!);
-			const names = profilesData.profiles.items.map(
-				(profile: any) => profile.handle
-			);
-
+			setLensProfiles(profilesData.profiles.items);
 			closeModal(false);
 		} catch (err) {
 			console.log(err);
@@ -60,7 +71,7 @@ const Navbar = ({
 				/>
 			</div>
 			<div className="w-[150px] lg:w-[200px] h-4 flex items-center">
-				{true ? (
+				{!profile ? (
 					<button
 						onClick={login}
 						className="pb-1 font-bold border-b-2 border-b-slate-500 hover:font-extrabold transition-all hover:text-blue-600"
@@ -72,23 +83,23 @@ const Navbar = ({
 						<Image
 							height={20}
 							width={20}
-							src={'/assets/cross.svg'}
+							src="/assets/cross.svg"
 							className="h-10 w-10 mr-3"
 							alt="new"
 						/>
 						<Image
 							height={20}
 							width={20}
-							src={'/assets/bell.svg'}
+							src="/assets/bell.svg"
 							className="h-4 w-4 mr-3"
 							alt="notifications"
 						/>
 						<Image
 							height={20}
 							width={20}
-							src="/assets/dummy/fakeProfile.jpeg"
+							src={profilePicture}
 							className="h-10 w-10 ml-3 rounded-full bg-gray-600"
-							alt="profile"
+							alt={profile.handle}
 						/>
 					</div>
 				)}
