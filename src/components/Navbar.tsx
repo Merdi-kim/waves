@@ -1,8 +1,13 @@
 'use client';
 import Image from 'next/image';
+import Link from 'next/link';
 import { Dispatch, SetStateAction, useState } from 'react';
 
-const Navbar = ({closeModal}:{closeModal: Dispatch<SetStateAction<boolean>>}) => {
+const Navbar = ({
+	closeModal,
+}: {
+	closeModal: Dispatch<SetStateAction<boolean>>;
+}) => {
 	const [isConnected, setIsConnected] = useState(false);
 
 	return (
@@ -32,19 +37,24 @@ const Navbar = ({closeModal}:{closeModal: Dispatch<SetStateAction<boolean>>}) =>
 				/>
 			</div>
 			<div className="w-[150px] lg:w-[200px] h-4 flex items-center">
-				{!isConnected ? (
-					<button onClick={() => closeModal(false)} className="pb-1 font-bold border-b-2 border-b-slate-500 hover:font-extrabold transition-all hover:text-blue-600">
+				{isConnected ? (
+					<button
+						onClick={() => closeModal(false)}
+						className="pb-1 font-bold border-b-2 border-b-slate-500 hover:font-extrabold transition-all hover:text-blue-600"
+					>
 						Start your journey
 					</button>
 				) : (
 					<div className="flex items-center">
-						<Image
-							height={20}
-							width={20}
-							src={'/assets/cross.svg'}
-							className="h-10 w-10 mr-3"
-							alt="new"
-						/>
+						<Link href="/new">
+							<Image
+								height={20}
+								width={20}
+								src={'/assets/cross.svg'}
+								className="h-10 w-10 mr-3 cursor-pointer"
+								alt="new"
+							/>
+						</Link>
 						<Image
 							height={20}
 							width={20}
