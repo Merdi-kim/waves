@@ -1,4 +1,4 @@
-"use client";
+'use client';
 import Chat from '@/components/stream/Chat';
 import StreamingFooter from '@/components/stream/StreamingFooter';
 import { LuUsers } from 'react-icons/lu';
@@ -29,9 +29,8 @@ const livepeerTheme: ThemeConfig = {
 const playbackId = //'f5eese9wwl88k4g8'
 	'bafybeigtqixg4ywcem3p6sitz55wy6xvnr565s6kuwhznpwjices3mmxoe';
 
-
 const page = () => {
-	const router = useRouter()
+	const router = useRouter();
 
 	return (
 		<LivepeerConfig client={client} theme={livepeerTheme}>
@@ -46,7 +45,10 @@ const page = () => {
 						<div className="flex items-center gap-3 text-white border rounded-xl border-white/50 p-2">
 							<LuUsers className="w-6 h-6" /> <span className="text-xl">6</span>
 						</div>
-						<div onClick={() => router.replace('/home')} className="flex items-center gap-2 bg-primary px-3 py-2.5 rounded-lg cursor-pointer">
+						<div
+							onClick={() => router.replace('/home')}
+							className="flex items-center gap-2 bg-primary px-3 py-2.5 rounded-lg cursor-pointer"
+						>
 							<PiUploadSimpleBold className="w-6 h-6 rotate-90 cursor-pointer" />
 							<p>End the stream</p>
 						</div>
