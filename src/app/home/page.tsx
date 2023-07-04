@@ -16,7 +16,7 @@ const Home = () => {
 				<Sidebar />
 			</div>
 			<div className="w-9/12">
-				<Navbar  closeModal={setCloseModal} />
+				<Navbar closeModal={setCloseModal} />
 				<HeroBanner />
 				<div className="px-10">
 					{/** live sessions list */}
