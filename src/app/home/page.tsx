@@ -16,11 +16,14 @@ const Home = () => {
 
 	useEffect(() => {
 		const fetchReels = async () => {
+			await db.init()
 			const data = await db.get('reels', ['__id__', 'desc']);
 			setReels(data);
 		};
 		fetchReels();
 	}, []);
+
+	console.log(reels)
 
 	return (
 		<RecoilRoot>

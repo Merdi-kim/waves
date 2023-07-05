@@ -1,8 +1,11 @@
 import db from '@/lib/weaveDB';
 import Image from 'next/image';
 import React, { ChangeEvent, FormEvent, useState } from 'react';
-import axios from 'axios';
 import { useRouter } from 'next/navigation';
+//@ts-ignore
+import fileReaderStream from "filereader-stream"
+import { WebBundlr } from '@bundlr-network/client';
+import { providers } from "ethers";
 
 const ReelUpload = () => {
 	const [video, setVideo] = useState<File>();
@@ -11,7 +14,6 @@ const ReelUpload = () => {
 		description: string;
 	}>({ title: '', description: '' });
 	const router = useRouter();
-
 	const updateMetadata = (e: ChangeEvent<HTMLInputElement>) => {
 		setMetadata({ ...metadata, [e.target.name]: e.target.value });
 	};
@@ -25,10 +27,15 @@ const ReelUpload = () => {
 		if (reelPreview?.duration > 60) {
 			return window.alert('Your video should be 60 seconds or less');
 		}
-		const fileBuffer = video.arrayBuffer();
-		const { data: reelTxId } = await axios.post('/api/upload', {
-			body: fileBuffer,
-		});
+		await window.ethereum.enable();
+		const provider = new providers.Web3Provider(window.ethereum);
+		await provider._ready();
+		const bundlr = new WebBundlr("https://devnet.bundlr.network", "matic", provider);
+		await bundlr.ready();
+		//await bundlr.fund(bundlr.utils.toAtomic(0.3));
+		const dataStream =fileReaderStream(video)
+		const tags = [{ name: 'Content-Type', value: 'video/mp4' }];
+		const { id:reelTxId } = await bundlr.upload(dataStream, { tags });
 		const reelToUpload = {
 			...metadata,
 			reelTxId,
