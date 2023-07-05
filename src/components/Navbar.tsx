@@ -10,6 +10,7 @@ import { ethers } from 'ethers';
 import Image from 'next/image';
 import { Dispatch, SetStateAction } from 'react';
 import { useRecoilState, useRecoilValue } from 'recoil';
+import Link from 'next/link';
 
 const Navbar = ({
 	closeModal,
@@ -80,13 +81,15 @@ const Navbar = ({
 					</button>
 				) : (
 					<div className="flex items-center">
-						<Image
-							height={20}
-							width={20}
-							src="/assets/cross.svg"
-							className="h-10 w-10 mr-3"
-							alt="new"
-						/>
+						<Link href={'/new'}>
+							<Image
+								height={20}
+								width={20}
+								src="/assets/cross.svg"
+								className="h-10 w-10 mr-3"
+								alt="new"
+							/>
+						</Link>
 						<Image
 							height={20}
 							width={20}
