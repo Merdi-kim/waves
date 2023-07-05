@@ -3,9 +3,9 @@ import Image from 'next/image';
 import React, { ChangeEvent, FormEvent, useState } from 'react';
 import { useRouter } from 'next/navigation';
 //@ts-ignore
-import fileReaderStream from "filereader-stream"
+import fileReaderStream from 'filereader-stream';
 import { WebBundlr } from '@bundlr-network/client';
-import { providers } from "ethers";
+import { providers } from 'ethers';
 
 const ReelUpload = () => {
 	const [video, setVideo] = useState<File>();
@@ -30,12 +30,16 @@ const ReelUpload = () => {
 		await window.ethereum.enable();
 		const provider = new providers.Web3Provider(window.ethereum);
 		await provider._ready();
-		const bundlr = new WebBundlr("https://devnet.bundlr.network", "matic", provider);
+		const bundlr = new WebBundlr(
+			'https://devnet.bundlr.network',
+			'matic',
+			provider
+		);
 		await bundlr.ready();
 		//await bundlr.fund(bundlr.utils.toAtomic(0.3));
-		const dataStream =fileReaderStream(video)
+		const dataStream = fileReaderStream(video);
 		const tags = [{ name: 'Content-Type', value: 'video/mp4' }];
-		const { id:reelTxId } = await bundlr.upload(dataStream, { tags });
+		const { id: reelTxId } = await bundlr.upload(dataStream, { tags });
 		const reelToUpload = {
 			...metadata,
 			reelTxId,
