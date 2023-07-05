@@ -1,14 +1,49 @@
 'use client';
+import {
+	authenticate,
+	generateChallenge,
+	getProfiles,
+} from '@/lib/lens/lensClient';
+import { lensProfiles, selectedHandle } from '@/lib/recoil';
+import { formatPicture } from '@/utils/formatPicture';
+import { ethers } from 'ethers';
 import Image from 'next/image';
+import { Dispatch, SetStateAction } from 'react';
+import { useRecoilState, useRecoilValue } from 'recoil';
 import Link from 'next/link';
-import { Dispatch, SetStateAction, useState } from 'react';
 
 const Navbar = ({
 	closeModal,
 }: {
 	closeModal: Dispatch<SetStateAction<boolean>>;
 }) => {
-	const [isConnected, setIsConnected] = useState(false);
+	const [, setLensProfiles] = useRecoilState(lensProfiles);
+	const profile = useRecoilValue(selectedHandle);
+	let profilePicture = '/assets/dummy/fakeProfile.jpeg';
+	if (profile != null) {
+		profilePicture = formatPicture(profile?.picture);
+	}
+
+	const login = async () => {
+		try {
+			//@ts-ignore
+			const provider = new ethers.providers.Web3Provider(window.ethereum);
+			const [address] = await provider.send('eth_requestAccounts', []);
+			const challengeResponse = await generateChallenge(address!);
+			const signer = provider.getSigner();
+			const signature = await signer.signMessage(
+				challengeResponse.data.challenge.text
+			);
+			const { data } = await authenticate(address, signature!);
+			const localStorage = window.localStorage;
+			localStorage.setItem('auth_token', data.authenticate.accessToken);
+			const { data: profilesData } = await getProfiles(address!);
+			setLensProfiles(profilesData.profiles.items);
+			closeModal(false);
+		} catch (err) {
+			console.log(err);
+		}
+	};
 
 	return (
 		<div className="h-20 w-full flex flex-col sm:flex-row items-center px-4 lg:px-10 justify-between">
@@ -37,37 +72,37 @@ const Navbar = ({
 				/>
 			</div>
 			<div className="w-[150px] lg:w-[200px] h-4 flex items-center">
-				{isConnected ? (
+				{!profile ? (
 					<button
-						onClick={() => closeModal(false)}
+						onClick={login}
 						className="pb-1 font-bold border-b-2 border-b-slate-500 hover:font-extrabold transition-all hover:text-blue-600"
 					>
 						Start your journey
 					</button>
 				) : (
 					<div className="flex items-center">
-						<Link href="/new">
+						<Link href={'/new'}>
 							<Image
 								height={20}
 								width={20}
-								src={'/assets/cross.svg'}
-								className="h-10 w-10 mr-3 cursor-pointer"
+								src="/assets/cross.svg"
+								className="h-10 w-10 mr-3"
 								alt="new"
 							/>
 						</Link>
 						<Image
 							height={20}
 							width={20}
-							src={'/assets/bell.svg'}
+							src="/assets/bell.svg"
 							className="h-4 w-4 mr-3"
 							alt="notifications"
 						/>
 						<Image
 							height={20}
 							width={20}
-							src="/assets/dummy/fakeProfile.jpeg"
+							src={profilePicture}
 							className="h-10 w-10 ml-3 rounded-full bg-gray-600"
-							alt="profile"
+							alt={profile.handle}
 						/>
 					</div>
 				)}
