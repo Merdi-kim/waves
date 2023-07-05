@@ -1,25 +1,42 @@
+import db from '@/lib/weaveDB';
 import Image from 'next/image';
-import React, { FormEvent, useState } from 'react';
+import React, { ChangeEvent, FormEvent, useState } from 'react';
+import axios from 'axios';
+import { useRouter } from 'next/navigation';
 
 const ReelUpload = () => {
 	const [video, setVideo] = useState<File>();
+	const [metadata, setMetadata] = useState<{
+		title: string;
+		description: string;
+	}>({ title: '', description: '' });
+	const router = useRouter();
+
+	const updateMetadata = (e: ChangeEvent<HTMLInputElement>) => {
+		setMetadata({ ...metadata, [e.target.name]: e.target.value });
+	};
 
 	const upload = async (e: FormEvent) => {
 		e.preventDefault();
-		const reelPreview = document.getElementById('reelPreview');
-		/*if(reelPreview?.duration > 60) {
-			window.alert('Your video should be 60 seconds or less')
-			return 
-		}*/
-		fetch('/api/upload', {
-			method: 'POST',
-		})
-			.then((res) => res.text())
-			.then((response) => {
-				console.log(response);
-			});
+		if (!metadata.title || !metadata.description || !video) {
+			return window.alert('Data missing');
+		}
+		const reelPreview: any = document.getElementById('reelPreview');
+		if (reelPreview?.duration > 60) {
+			return window.alert('Your video should be 60 seconds or less');
+		}
+		const fileBuffer = video.arrayBuffer();
+		const { data: reelTxId } = await axios.post('/api/upload', {
+			body: fileBuffer,
+		});
+		const reelToUpload = {
+			...metadata,
+			reelTxId,
+		};
+		await db.init();
+		await db.add(reelToUpload, 'reels');
+		router.push('/home');
 	};
-
 	return (
 		<div className="w-[500px] flex flex-col items-center rounded-lg p-4 bg-neutral-800">
 			<h2 className="text-xl font-bold mt-4 mb-8">
@@ -32,12 +49,16 @@ const ReelUpload = () => {
 				<input
 					type="text"
 					className="w-full h-8 rounded-lg outline-none border-none px-2 my-4"
+					name="title"
 					placeholder="Your title goes here..."
+					onChange={updateMetadata}
 				/>
 				<input
 					type="text"
 					className="w-full h-8 rounded-lg outline-none border-none px-2 my-4"
+					name="description"
 					placeholder="Your description goes here..."
+					onChange={updateMetadata}
 				/>
 				<label htmlFor="reel" className="cursor-pointer">
 					<Image
@@ -53,7 +74,6 @@ const ReelUpload = () => {
 					accept="video/*"
 					id="reel"
 					hidden
-					//required
 				/>
 				{video && (
 					<video
