@@ -20,7 +20,7 @@ const PopularCategoriesFeed = () => {
 				</div>
 			</div>
 			<div className="w-7/12 h-full flex flex-col justify-between">
-				{dummyChannels.map((index) => (
+				{dummyChannels.map((name, index) => (
 					<div key={index} className=" w-full flex ">
 						<Image
 							height={20}

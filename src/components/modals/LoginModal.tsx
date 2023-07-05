@@ -1,19 +1,20 @@
 import { Dispatch, SetStateAction } from 'react';
 import LensProfile from '../ui/LensProfile';
 import Image from 'next/image';
+import { useRecoilValue } from 'recoil';
+import { lensProfiles, selectedHandle } from '@/lib/recoil';
 
 const LoginModal = ({
 	closeModal,
 }: {
 	closeModal: Dispatch<SetStateAction<boolean>>;
 }) => {
-	const names = [
-		'merkim.lens',
-		'vitalik.lens',
-		'test.lens',
-		'jonathan.lens',
-		'verylongnamelikethisonehere.lens',
-	];
+	const profiles = useRecoilValue(lensProfiles);
+	const handle = useRecoilValue(selectedHandle);
+
+	const loginWithHandle = () => {
+		closeModal(true);
+	};
 
 	return (
 		<div className="absolute flex items-center justify-center top-0 h-screen w-screen bg-black bg-opacity-90 overflow-hidden">
@@ -30,11 +31,18 @@ const LoginModal = ({
 				</div>
 				<h2 className="font-bold text-xl mb-6">Join the Wave</h2>
 				<div className=" mb-6 flex flex-wrap justify-evenly">
-					{names.map((name, index) => (
-						<LensProfile key={index} name={name} />
+					{profiles.map((profile: any, index) => (
+						<LensProfile key={index} profile={profile} />
 					))}
 				</div>
-				<button className="w-[250px] h-8 bg-blue-600 rounded-lg">Login</button>
+				{handle && (
+					<button
+						onClick={loginWithHandle}
+						className="w-[250px] h-8 bg-blue-600 rounded-lg"
+					>
+						Login
+					</button>
+				)}
 			</div>
 		</div>
 	);
