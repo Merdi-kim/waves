@@ -19,7 +19,7 @@ const ReelUpload = () => {
 	const upload = async (e: FormEvent) => {
 		e.preventDefault();
 		if (!metadata.title || !metadata.description || !video) {
-			return window.alert('Data missing');
+			return window.alert('Title or Description or Reel missing');
 		}
 		const reelPreview: any = document.getElementById('reelPreview');
 		if (reelPreview?.duration > 60) {
