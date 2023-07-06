@@ -24,16 +24,6 @@ const Home = () => {
 						<LiveSession />
 						<PopularCategoriesFeed />
 					</div>
-					<div className="w-9/12">
-						<Navbar closeModal={setCloseModal} />
-						<HeroBanner />
-						<div className="px-10">
-							{/** live sessions list */}
-							<LiveSession />
-							<PopularCategoriesFeed />
-						</div>
-					</div>
-					{!closeModal && <LoginModal closeModal={setCloseModal} />}
 				</div>
 				{!closeModal && <LoginModal closeModal={setCloseModal} />}
 			</div>
