@@ -23,8 +23,6 @@ const Home = () => {
 		fetchReels();
 	}, []);
 
-	console.log(reels);
-
 	return (
 		<RecoilRoot>
 			<div className="min-h-full w-full flex">
