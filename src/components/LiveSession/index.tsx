@@ -1,6 +1,8 @@
 import Image from 'next/image';
 import LiveChannelCard from './partials/LiveChannelCard';
 import { FaWifi } from 'react-icons/fa';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 
 const dummyLives = [
 	{
@@ -33,16 +35,38 @@ const dummyLives = [
 ];
 
 function LiveSession() {
+	const [liveStreams, setLiveStreams] = useState([]);
+
+	useEffect(() => {
+		const getLiveStreams = async () => {
+			const { data } = await axios.get(
+				'https://livepeer.studio/api/stream?streamsonly=1&filters=[{"id": "isActive", "value": true}]',
+				{
+					headers: {
+						'content-type': 'application/json',
+						authorization: `Bearer ${process.env.NEXT_PUBLIC_STUDIO_API_KEY}`,
+					},
+				}
+			);
+			console.log(data);
+			setLiveStreams(data);
+		};
+		getLiveStreams();
+	}, []);
+
 	return (
 		<div className="my-10">
-			<h1 className="text-3xl font-bold mb-10">Live Channels</h1>
+			{liveStreams.length > 0 && (
+				<h1 className="text-3xl font-bold mb-10">Live Channels</h1>
+			)}
 			<div className="grid grid-cols-3 gap-3 gap-y-10">
-				{dummyLives.map((live, index) => {
+				{liveStreams?.map((live: any, index) => {
 					return (
 						<LiveChannelCard
+							//proper liveCard props will be passed later after checking the stream object
 							key={`live-channel-${index}`}
 							image_url={live.image_url}
-							liveTitle={live.liveTitle}
+							//liveTitle={live.liveTitle}
 							numberOfWatches={live.numberOfWatches}
 							profile={live.profile}
 							title={live.title}
@@ -66,6 +90,7 @@ function LiveSession() {
 											width={100}
 											height={100}
 											className="rounded-full"
+											alt="profile"
 										/>
 									</div>
 									<p className="mt-2 text-gray-500">14min ago</p>
