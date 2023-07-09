@@ -6,6 +6,7 @@ const ReelCard = ({ reel }: { reel: any }) => {
 			<video
 				className="h-[300px] w-[250px] bg-gray-500 rounded-lg"
 				id="reel"
+				src={`https://arweave.net/${reel.reelTxId}`}
 			></video>
 			<p className="line-clamp-2 pl-1">
 				Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptate,

@@ -39,10 +39,13 @@ const ReelUpload = () => {
 		//await bundlr.fund(bundlr.utils.toAtomic(0.3));
 		const dataStream = fileReaderStream(video);
 		const tags = [{ name: 'Content-Type', value: 'video/mp4' }];
-		const { id: reelTxId } = await bundlr.upload(dataStream, { tags });
+		const { data } = await bundlr.uploader.chunkedUploader.uploadData(
+			dataStream,
+			{ tags }
+		);
 		const reelToUpload = {
 			...metadata,
-			reelTxId,
+			reelTxId: data.id,
 		};
 		await db.init();
 		await db.add(reelToUpload, 'reels');
