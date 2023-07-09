@@ -8,15 +8,17 @@ import { lensProfiles, selectedHandle } from '@/lib/recoil';
 import { formatPicture } from '@/utils/formatPicture';
 import { ethers } from 'ethers';
 import Image from 'next/image';
-import { Dispatch, SetStateAction } from 'react';
+import { Dispatch, SetStateAction, useState } from 'react';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import Link from 'next/link';
+import ProfileDetails from './modals/ProfileDetails';
 
 const Navbar = ({
 	closeModal,
 }: {
 	closeModal: Dispatch<SetStateAction<boolean>>;
 }) => {
+	const [showProfileDetails, setShowProfileDetails] = useState(false);
 	const [, setLensProfiles] = useRecoilState(lensProfiles);
 	const profile = useRecoilValue(selectedHandle);
 	let profilePicture = '/assets/dummy/fakeProfile.jpeg';
@@ -46,7 +48,7 @@ const Navbar = ({
 	};
 
 	return (
-		<div className="h-20 w-full flex flex-col sm:flex-row items-center px-4 lg:px-10 justify-between">
+		<div className="h-20 w-full relative flex flex-col sm:flex-row items-center px-4 lg:px-10 justify-between">
 			<div className="hidden md:flex items-center justify-center">
 				<Image
 					height={20}
@@ -101,12 +103,21 @@ const Navbar = ({
 							height={20}
 							width={20}
 							src={profilePicture}
-							className="h-10 w-10 ml-3 rounded-full bg-gray-600"
+							className="h-10 w-10 ml-3 rounded-full bg-gray-600 cursor-pointer"
 							alt={profile.handle}
+							onClick={() => setShowProfileDetails(true)}
 						/>
 					</div>
 				)}
 			</div>
+			{showProfileDetails && (
+				<ProfileDetails
+					handle={profile.handle}
+					stats={profile.stats}
+					profilePicture={profilePicture}
+					setShowProfileDetails={setShowProfileDetails}
+				/>
+			)}
 		</div>
 	);
 };
