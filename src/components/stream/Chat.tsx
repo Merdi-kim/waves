@@ -2,9 +2,13 @@ import { BsEmojiSmile } from 'react-icons/bs';
 import { RiSendPlane2Line } from 'react-icons/ri';
 import { MdOutlineClose } from 'react-icons/md';
 
-const Chat = () => {
+const Chat = ({ isCreator = false }: { isCreator?: boolean }) => {
 	return (
-		<div className="relative  bg-[#222323] h-full w-full rounded-2xl">
+		<div
+			className={`relative ${
+				isCreator ? 'bg-[#222323]/50' : 'bg-[#222323]'
+			}  h-full w-full rounded-2xl`}
+		>
 			<div className="flex justify-between px-5 py-8 border-b border-gray-600">
 				<h2 className="text-2xl font-bold flex gap-2 items-center">
 					Chat
@@ -15,7 +19,11 @@ const Chat = () => {
 
 				<MdOutlineClose className="w-7 h-7 text-white" />
 			</div>
-			<div className="absolute bottom-8 rounded-2xl w-[95%] ml-5 mx-auto px-10 bg-black py-5 flex justify-between items-center">
+			<div
+				className={`absolute bottom-8 rounded-2xl w-[95%] ml-5 mx-auto px-10 ${
+					isCreator ? 'bg-black/60' : 'bg-black '
+				} py-5 flex justify-between items-center`}
+			>
 				<input
 					type="text"
 					placeholder="Send a Message to everyone"
