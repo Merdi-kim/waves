@@ -3,13 +3,26 @@ import HeroBanner from '@/components/HeroBanner';
 import LiveSession from '@/components/LiveSession';
 import Navbar from '@/components/Navbar';
 import LoginModal from '@/components/modals/LoginModal';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import db from '@/lib/weaveDB';
 import PopularCategoriesFeed from '@/components/PopularCategoriesFeed';
 import Sidebar from '@/components/SideBar';
+import ReelCard from '@/components/ui/ReelCard';
 import { RecoilRoot } from 'recoil';
 
 const Home = () => {
 	const [closeModal, setCloseModal] = useState(true);
+	const [reels, setReels] = useState([]);
+
+	useEffect(() => {
+		const fetchReels = async () => {
+			await db.init();
+			const data = await db.get('reels', ['__id__', 'desc']);
+			setReels(data);
+		};
+		fetchReels();
+	}, []);
+
 	return (
 		<RecoilRoot>
 			<div className="min-h-full w-full flex">
@@ -20,22 +33,16 @@ const Home = () => {
 					<Navbar closeModal={setCloseModal} />
 					<HeroBanner />
 					<div className="px-10">
-						{/** live sessions list */}
 						<LiveSession />
 						<PopularCategoriesFeed />
 					</div>
-					<div className="w-9/12">
-						<Navbar closeModal={setCloseModal} />
-						<HeroBanner />
-						<div className="px-10">
-							{/** live sessions list */}
-							<LiveSession />
-							<PopularCategoriesFeed />
-						</div>
+					<div className="flex flex-wrap">
+						{reels?.map((reel, index) => (
+							<ReelCard key={index} reel={reel} />
+						))}
 					</div>
 					{!closeModal && <LoginModal closeModal={setCloseModal} />}
 				</div>
-				{!closeModal && <LoginModal closeModal={setCloseModal} />}
 			</div>
 		</RecoilRoot>
 	);

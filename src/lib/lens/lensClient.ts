@@ -5,7 +5,12 @@ import {
 	InMemoryCache,
 	gql,
 } from '@apollo/client';
-import { AUTHENTICATION, GET_CHALLENGE, GET_PROFILES } from './lensQueries';
+import {
+	AUTHENTICATION,
+	GET_CHALLENGE,
+	GET_PROFILES,
+	RECOMMENDED_PROFILES,
+} from './lensQueries';
 
 const httpLink = new HttpLink({ uri: 'https://api-mumbai.lens.dev/' });
 
@@ -41,6 +46,12 @@ export const generateChallenge = (address: string) => {
 				address,
 			},
 		},
+	});
+};
+
+export const recommendedProfiles = () => {
+	return apolloClient.query({
+		query: gql(RECOMMENDED_PROFILES),
 	});
 };
 

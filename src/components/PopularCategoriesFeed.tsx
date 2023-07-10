@@ -4,7 +4,7 @@ const PopularCategoriesFeed = () => {
 	const dummyChannels = Array(4).fill('');
 
 	return (
-		<div className="w-full h-[45vh] my-10 flex">
+		<div className="w-full my-10 flex">
 			<div className='w-4/12 mr-4 bg-[url("/assets/dummy/thumbnail.jpeg")] object-cover rounded-lg'>
 				<div className="h-full w-full flex items-end bg-opacity-40 bg-white rounded-lg">
 					<div className="ml-20">
