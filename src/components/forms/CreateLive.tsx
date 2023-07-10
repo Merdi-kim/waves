@@ -7,10 +7,6 @@ const CreateLive = () => {
 	const [title, setTitle] = useState('new stream');
 	const router = useRouter();
 
-	const { mutate: createStream, data: stream } = useCreateStream({
-		name: title,
-	});
-
 	useEffect(() => {
 		const navigatorDevices = navigator.mediaDevices;
 		var video: any = document.getElementById('videoCam');
@@ -38,9 +34,8 @@ const CreateLive = () => {
 
 	const goLive = async (e: FormEvent) => {
 		e.preventDefault();
-		createStream?.();
 		const titleToLink = title.split(' ');
-		router.push(`/stream/${titleToLink.join('_')}`);
+		router.push(`/studio/${titleToLink.join('_')}`);
 	};
 
 	return (
