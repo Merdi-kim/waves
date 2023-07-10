@@ -1,72 +1,22 @@
 import Image from 'next/image';
 import LiveChannelCard from './partials/LiveChannelCard';
 import { FaWifi } from 'react-icons/fa';
-import { useEffect, useState } from 'react';
-import axios from 'axios';
+import { AxiosResponse } from 'axios';
 
-const dummyLives = [
-	{
-		image_url: '/assets/dummy/profile-1.png',
-		title: '2022 world champs gaming warzon',
-		numberOfWatches: 420000,
-		profile: {
-			image: '/assets/dummy/profile-1.png',
-			name: 'Guy Hawkins',
-		},
-	},
-	{
-		image_url: '/assets/dummy/profile-2.jpeg',
-		title: '2022 world champs gaming warzon',
-		numberOfWatches: 4300,
-		profile: {
-			image: '/assets/dummy/profile-2.jpeg',
-			name: 'Guy Hawkins',
-		},
-	},
-	{
-		image_url: '/assets/dummy/profile-1.png',
-		title: '2022 world champs gaming warzon',
-		numberOfWatches: 2,
-		profile: {
-			image: '/assets/dummy/profile-1.png',
-			name: 'Guy Hawkins',
-		},
-	},
-];
-
-function LiveSession() {
-	const [liveStreams, setLiveStreams] = useState([]);
-
-	useEffect(() => {
-		const getLiveStreams = async () => {
-			const { data } = await axios.get(
-				'https://livepeer.studio/api/stream?streamsonly=1&filters=[{"id": "isActive", "value": true}]',
-				{
-					headers: {
-						'content-type': 'application/json',
-						authorization: `Bearer ${process.env.NEXT_PUBLIC_STUDIO_API_KEY}`,
-					},
-				}
-			);
-			console.log(data);
-			setLiveStreams(data);
-		};
-		getLiveStreams();
-	}, []);
+function LiveSession({streams}:{streams:AxiosResponse<any, any> | undefined;}) {
 
 	return (
 		<div className="my-10">
-			{liveStreams.length > 0 && (
+			{streams?.length > 0 && (
 				<h1 className="text-3xl font-bold mb-10">Live Channels</h1>
 			)}
 			<div className="grid grid-cols-3 gap-3 gap-y-10">
-				{liveStreams?.map((live: any, index) => {
+				{streams?.map((live: any, index) => {
 					return (
+						//proper rendering of child elements
 						<LiveChannelCard
-							//proper liveCard props will be passed later after checking the stream object
 							key={`live-channel-${index}`}
 							image_url={live.image_url}
-							//liveTitle={live.liveTitle}
 							numberOfWatches={live.numberOfWatches}
 							profile={live.profile}
 							title={live.title}
