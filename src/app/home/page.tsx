@@ -38,10 +38,10 @@ const Home = () => {
 	return (
 		<RecoilRoot>
 			<div className="min-h-full w-full flex">
-				<div className="w-3/12">
+				<div className="hidden sm:block sm:w-[120px] md:w-[250px] overlow-hidden bg-neutral-800">
 					<Sidebar />
 				</div>
-				<div className="w-9/12">
+				<div className="w-full sm:w-[calc(100%-120px)] md:w-[calc(100%-250px)]">
 					<Navbar closeModal={setCloseModal} />
 					<HeroBanner />
 					<div className="px-10">

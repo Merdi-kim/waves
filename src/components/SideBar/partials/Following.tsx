@@ -19,12 +19,14 @@ const Following: FC<FollowingProps> = (props) => {
 			<div className="flex justify-center items-center gap-3">
 				<Image
 					src={profile_url}
-					width={50}
-					height={50}
+					width={40}
+					height={40}
 					alt={username}
 					className="rounded-full"
 				/>
-				<span className="text-white font-bold">{username}</span>
+				<span className="text-white font-bold hidden md:block ">
+					{username}
+				</span>
 			</div>
 		</div>
 	);
