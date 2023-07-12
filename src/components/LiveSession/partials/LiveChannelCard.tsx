@@ -2,11 +2,7 @@
 import Image from 'next/image';
 import { FC } from 'react';
 import { FaWifi } from 'react-icons/fa';
-import { BsCheckCircleFill } from 'react-icons/bs';
-import formatNumber from '@/utils/formatNumber';
 import { useRouter } from 'next/navigation';
-import { useRecoilState } from 'recoil';
-import { playbackID } from '@/lib/recoil';
 
 type LiveProps = {
 	playbackId: string;
@@ -16,11 +12,9 @@ type LiveProps = {
 const LiveChannelCard: FC<LiveProps> = (props) => {
 	const { playbackId, title } = props;
 	const router = useRouter();
-	const [_, setPlaybackId] = useRecoilState(playbackID);
 
 	const goToLiveStream = () => {
-		setPlaybackId(playbackId);
-		router.push('/stream');
+		router.push(`/home/stream/${playbackId}`);
 	};
 	return (
 		<div
@@ -52,11 +46,6 @@ const LiveChannelCard: FC<LiveProps> = (props) => {
 					<FaWifi className="w-6 h-6" />
 					<p>Live</p>
 				</div>
-				{/*<div className="flex items-center gap-1">
-					<div className="h-2 w-2 bg-blue-900 rounded-full" />
-					{numberOfWatches !== 0 && formatNumber(numberOfWatches)}
-					{numberOfWatches !== 0 && <span> watching</span>}
-	</div>*/}
 			</div>
 		</div>
 	);

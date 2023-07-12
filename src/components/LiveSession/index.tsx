@@ -1,44 +1,21 @@
 import Image from 'next/image';
 import LiveChannelCard from './partials/LiveChannelCard';
 import { FaWifi } from 'react-icons/fa';
-import { AxiosResponse } from 'axios';
-import { useRecoilState } from 'recoil';
-import { playbackID } from '@/lib/recoil';
-import { useRouter } from 'next/navigation';
 
-function LiveSession({
-	streams,
-}: {
-	streams: AxiosResponse<any, any> | undefined;
-}) {
-	const [_, setPlaybackId] = useRecoilState(playbackID);
-	const router = useRouter();
-
+function LiveSession({ streams }: { streams: any }) {
 	return (
 		<div className="my-10">
 			{streams?.length > 0 && (
 				<h1 className="text-3xl font-bold mb-10">Live Channels</h1>
 			)}
 			<div className="grid grid-cols-3 gap-3 gap-y-10">
-				{streams?.map((live: any, index) => {
-					console.log(live);
-					return (
-						<div
-							key={index}
-							onClick={() => {
-								setPlaybackId(live.playbackId);
-								router.push('/stream');
-							}}
-						>
-							here click
-						</div>
-						/*<LiveChannelCard
-							key={`live-channel-${index}`}
-							playbackId={live.playbackId}
-							title={live.name}
-					    />*/
-					);
-				})}
+				{streams?.map((live: any, index: number) => (
+					<LiveChannelCard
+						key={`live-channel-${index}`}
+						playbackId={live.playbackId}
+						title={live.name}
+					/>
+				))}
 			</div>
 			<div className="bg-slate-900 px-10 rounded-3xl mt-10 py-5">
 				<h1 className="text-3xl font-bold mb-5">From channels you follow</h1>
