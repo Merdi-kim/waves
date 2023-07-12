@@ -11,5 +11,5 @@ export const selectedHandle = atom({
 });
 
 export const playbackID = atom({
-	key:'playbackId'
-})
+	key: 'playbackId',
+});

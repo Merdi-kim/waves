@@ -9,7 +9,7 @@ import PopularCategoriesFeed from '@/components/PopularCategoriesFeed';
 import Sidebar from '@/components/SideBar';
 import ReelCard from '@/components/ui/ReelCard';
 import { RecoilRoot } from 'recoil';
-import axios, { AxiosResponse } from 'axios'
+import axios, { AxiosResponse } from 'axios';
 
 const Home = () => {
 	const [closeModal, setCloseModal] = useState(true);

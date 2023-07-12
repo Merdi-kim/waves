@@ -30,7 +30,7 @@ const livepeerTheme: ThemeConfig = {
 
 const page = () => {
 	const router = useRouter();
-	const playbackId = useRecoilValue(playbackID)
+	const playbackId = useRecoilValue(playbackID);
 
 	return (
 		<LivepeerConfig client={client} theme={livepeerTheme}>

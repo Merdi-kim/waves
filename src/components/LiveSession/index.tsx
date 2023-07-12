@@ -6,21 +6,32 @@ import { useRecoilState } from 'recoil';
 import { playbackID } from '@/lib/recoil';
 import { useRouter } from 'next/navigation';
 
-function LiveSession({streams}:{streams:AxiosResponse<any, any> | undefined;}) {
-
-	const [_, setPlaybackId] = useRecoilState(playbackID)
-	const router = useRouter()
+function LiveSession({
+	streams,
+}: {
+	streams: AxiosResponse<any, any> | undefined;
+}) {
+	const [_, setPlaybackId] = useRecoilState(playbackID);
+	const router = useRouter();
 
 	return (
 		<div className="my-10">
-			{ streams?.length > 0 && (
+			{streams?.length > 0 && (
 				<h1 className="text-3xl font-bold mb-10">Live Channels</h1>
 			)}
 			<div className="grid grid-cols-3 gap-3 gap-y-10">
 				{streams?.map((live: any, index) => {
-					console.log(live)
+					console.log(live);
 					return (
-						<div key={index} onClick={() => {setPlaybackId(live.playbackId); router.push('/stream') }}>here click</div>
+						<div
+							key={index}
+							onClick={() => {
+								setPlaybackId(live.playbackId);
+								router.push('/stream');
+							}}
+						>
+							here click
+						</div>
 						/*<LiveChannelCard
 							key={`live-channel-${index}`}
 							playbackId={live.playbackId}

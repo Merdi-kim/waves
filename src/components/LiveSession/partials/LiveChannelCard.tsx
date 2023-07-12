@@ -1,32 +1,35 @@
-'use client'
+'use client';
 import Image from 'next/image';
 import { FC } from 'react';
 import { FaWifi } from 'react-icons/fa';
 import { BsCheckCircleFill } from 'react-icons/bs';
 import formatNumber from '@/utils/formatNumber';
-import {useRouter} from 'next/navigation';
+import { useRouter } from 'next/navigation';
 import { useRecoilState } from 'recoil';
 import { playbackID } from '@/lib/recoil';
 
 type LiveProps = {
-	playbackId:string,
-	title:string
-}
+	playbackId: string;
+	title: string;
+};
 
-const LiveChannelCard:FC<LiveProps> = (props) => {
+const LiveChannelCard: FC<LiveProps> = (props) => {
 	const { playbackId, title } = props;
-	const router = useRouter()
-	const [_, setPlaybackId] = useRecoilState(playbackID)
+	const router = useRouter();
+	const [_, setPlaybackId] = useRecoilState(playbackID);
 
 	const goToLiveStream = () => {
-		setPlaybackId(playbackId)
-		router.push('/stream')
-	}
+		setPlaybackId(playbackId);
+		router.push('/stream');
+	};
 	return (
-		<div onClick={goToLiveStream} className="bg-slate-900 h-fit w-fit flex flex-col gap-6 rounded-3xl cursor-pointer">
+		<div
+			onClick={goToLiveStream}
+			className="bg-slate-900 h-fit w-fit flex flex-col gap-6 rounded-3xl cursor-pointer"
+		>
 			<div className="relative max-w-96 min-w-fit h-56 rounded-t-3xl">
 				<Image
-					src='/assets/dummy/profile-1.png'
+					src="/assets/dummy/profile-1.png"
 					fill
 					alt={title}
 					className="rounded-t-3xl object-cover"
@@ -36,7 +39,7 @@ const LiveChannelCard:FC<LiveProps> = (props) => {
 				<h2 className="text-2xl font-extrabold leading-6">{title}</h2>
 				<div className="flex gap-3 items-center">
 					<Image
-						src='/assets/dummy/profile-1.png'
+						src="/assets/dummy/profile-1.png"
 						alt="profile"
 						width={50}
 						height={50}
@@ -55,7 +58,7 @@ const LiveChannelCard:FC<LiveProps> = (props) => {
 					{numberOfWatches !== 0 && <span> watching</span>}
 	</div>*/}
 			</div>
-	</div>
+		</div>
 	);
 };
 
