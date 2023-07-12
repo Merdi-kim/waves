@@ -1,52 +1,42 @@
 import Image from 'next/image';
 import LiveChannelCard from './partials/LiveChannelCard';
 import { FaWifi } from 'react-icons/fa';
+import { AxiosResponse } from 'axios';
+import { useRecoilState } from 'recoil';
+import { playbackID } from '@/lib/recoil';
+import { useRouter } from 'next/navigation';
 
-const dummyLives = [
-	{
-		image_url: '/assets/dummy/profile-1.png',
-		title: '2022 world champs gaming warzon',
-		numberOfWatches: 420000,
-		profile: {
-			image: '/assets/dummy/profile-1.png',
-			name: 'Guy Hawkins',
-		},
-	},
-	{
-		image_url: '/assets/dummy/profile-2.jpeg',
-		title: '2022 world champs gaming warzon',
-		numberOfWatches: 4300,
-		profile: {
-			image: '/assets/dummy/profile-2.jpeg',
-			name: 'Guy Hawkins',
-		},
-	},
-	{
-		image_url: '/assets/dummy/profile-1.png',
-		title: '2022 world champs gaming warzon',
-		numberOfWatches: 2,
-		profile: {
-			image: '/assets/dummy/profile-1.png',
-			name: 'Guy Hawkins',
-		},
-	},
-];
+function LiveSession({
+	streams,
+}: {
+	streams: AxiosResponse<any, any> | undefined;
+}) {
+	const [_, setPlaybackId] = useRecoilState(playbackID);
+	const router = useRouter();
 
-function LiveSession() {
 	return (
 		<div className="my-10">
-			<h1 className="text-3xl font-bold mb-10">Live Channels</h1>
+			{streams?.length > 0 && (
+				<h1 className="text-3xl font-bold mb-10">Live Channels</h1>
+			)}
 			<div className="grid grid-cols-3 gap-3 gap-y-10">
-				{dummyLives.map((live, index) => {
+				{streams?.map((live: any, index) => {
+					console.log(live);
 					return (
-						<LiveChannelCard
+						<div
+							key={index}
+							onClick={() => {
+								setPlaybackId(live.playbackId);
+								router.push('/stream');
+							}}
+						>
+							here click
+						</div>
+						/*<LiveChannelCard
 							key={`live-channel-${index}`}
-							image_url={live.image_url}
-							liveTitle={live.liveTitle}
-							numberOfWatches={live.numberOfWatches}
-							profile={live.profile}
-							title={live.title}
-						/>
+							playbackId={live.playbackId}
+							title={live.name}
+					    />*/
 					);
 				})}
 			</div>
@@ -66,6 +56,7 @@ function LiveSession() {
 											width={100}
 											height={100}
 											className="rounded-full"
+											alt="profile"
 										/>
 									</div>
 									<p className="mt-2 text-gray-500">14min ago</p>

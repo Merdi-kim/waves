@@ -9,19 +9,30 @@ import PopularCategoriesFeed from '@/components/PopularCategoriesFeed';
 import Sidebar from '@/components/SideBar';
 import ReelCard from '@/components/ui/ReelCard';
 import { RecoilRoot } from 'recoil';
+import axios, { AxiosResponse } from 'axios';
 
 const Home = () => {
 	const [closeModal, setCloseModal] = useState(true);
 	const [reels, setReels] = useState([]);
+	const [streamsData, setStreamsData] = useState<AxiosResponse<any, any>>();
 
-	useEffect(() => {
-		const fetchReels = async () => {
-			await db.init();
-			const data = await db.get('reels', ['__id__', 'desc']);
-			setReels(data);
+	/*useEffect(() => {
+		const fetchData = async () => {
+			//await db.init();
+			//const reelsData = await db.get('reels', ['__id__', 'desc']);
+			const {data:streams} = await axios.get(
+				'https://livepeer.studio/api/stream?streamsonly=1&filters=[{"id": "isActive", "value": true}]', {
+					headers: {
+						"content-type": "application/json",
+						authorization: `Bearer ${process.env.NEXT_PUBLIC_STUDIO_API_KEY}`,
+					  },
+				}
+			);
+			setStreamsData(streams);
+			//setReels(reelsData);
 		};
-		fetchReels();
-	}, []);
+		fetchData();
+	}, []);*/
 
 	return (
 		<RecoilRoot>
@@ -33,7 +44,7 @@ const Home = () => {
 					<Navbar closeModal={setCloseModal} />
 					<HeroBanner />
 					<div className="px-10">
-						<LiveSession />
+						<LiveSession streams={streamsData} />
 						<PopularCategoriesFeed />
 					</div>
 					<div className="flex flex-wrap">

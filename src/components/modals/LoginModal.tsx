@@ -17,7 +17,7 @@ const LoginModal = ({
 	};
 
 	return (
-		<div className="absolute flex items-center justify-center top-0 h-screen w-screen bg-black bg-opacity-90 overflow-hidden">
+		<div className="absolute flex items-center justify-center top-0 left-0 h-screen w-full bg-black bg-opacity-90 overflow-hidden">
 			<div className="w-11/12 sm:w-9/12 lg:w-6/12 pb-8 flex flex-col items-center bg-neutral-800 rounded-lg">
 				<div className="h-6 w-full flex items-center justify-end">
 					<Image
