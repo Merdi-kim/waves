@@ -11,8 +11,6 @@ import {
 	studioProvider,
 } from '@livepeer/react';
 import { useRouter } from 'next/navigation';
-import { useRecoilValue } from 'recoil';
-import { playbackID } from '@/lib/recoil';
 
 const client = createReactClient({
 	provider: studioProvider({ apiKey: 'yourStudioApiKey' }),
@@ -28,9 +26,8 @@ const livepeerTheme: ThemeConfig = {
 	},
 };
 
-const page = () => {
+const page = ({ params }: { params: { playbackId: string } }) => {
 	const router = useRouter();
-	const playbackId = useRecoilValue(playbackID);
 
 	return (
 		<LivepeerConfig client={client} theme={livepeerTheme}>
@@ -58,7 +55,7 @@ const page = () => {
 					<div className="col-span-8 row-span-5 h-full w-full flex items-center rounded-2xl overflow-hidden">
 						<Player
 							title="Waterfalls"
-							playbackId={playbackId}
+							playbackId={params.playbackId}
 							autoPlay
 							showTitle={false}
 							showPipButton

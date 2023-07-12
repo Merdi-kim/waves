@@ -16,23 +16,24 @@ const Home = () => {
 	const [reels, setReels] = useState([]);
 	const [streamsData, setStreamsData] = useState<AxiosResponse<any, any>>();
 
-	/*useEffect(() => {
+	useEffect(() => {
 		const fetchData = async () => {
 			//await db.init();
 			//const reelsData = await db.get('reels', ['__id__', 'desc']);
-			const {data:streams} = await axios.get(
-				'https://livepeer.studio/api/stream?streamsonly=1&filters=[{"id": "isActive", "value": true}]', {
+			const { data: streams } = await axios.get(
+				'https://livepeer.studio/api/stream?streamsonly=1&filters=[{"id": "isActive", "value": true}]',
+				{
 					headers: {
-						"content-type": "application/json",
+						'content-type': 'application/json',
 						authorization: `Bearer ${process.env.NEXT_PUBLIC_STUDIO_API_KEY}`,
-					  },
+					},
 				}
 			);
 			setStreamsData(streams);
 			//setReels(reelsData);
 		};
 		fetchData();
-	}, []);*/
+	}, []);
 
 	return (
 		<RecoilRoot>
