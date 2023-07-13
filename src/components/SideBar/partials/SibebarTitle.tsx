@@ -30,9 +30,9 @@ const SibebarTitle: FC<SideBarTitleProps> = (props) => {
 
 	const sidebarClassName = classNames(
 		className,
-		'py-2 px-5 rounded-lg text-white cursor-pointer',
+		'py-2 sm:px-5 rounded-lg text-white cursor-pointer',
 		{
-			'flex gap-4 items-center': direction === 'horizontal',
+			'flex gap-4 items-start items-center': direction === 'horizontal',
 			'flex gap-2 justify-center': direction === 'vertical',
 			'bg-[#E85B5B] hover:font-bold transition-all': isActive,
 		}
@@ -41,7 +41,7 @@ const SibebarTitle: FC<SideBarTitleProps> = (props) => {
 	return (
 		<div className={sidebarClassName} {...rest}>
 			<span>{icon}</span>
-			<span>{title}</span>
+			<span className="hidden md:block">{title}</span>
 		</div>
 	);
 };
