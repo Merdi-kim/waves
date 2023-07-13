@@ -44,7 +44,7 @@ const Home = () => {
 				<div className="w-full sm:w-[calc(100%-120px)] md:w-[calc(100%-250px)]">
 					<Navbar closeModal={setCloseModal} />
 					<HeroBanner />
-					<div className="px-10">
+					<div className="md:px-10">
 						<LiveSession streams={streamsData} />
 						<PopularCategoriesFeed />
 					</div>
