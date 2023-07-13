@@ -28,7 +28,7 @@ const HeroBanner = () => {
 				</div>
 				<div className="h-44 w-full flex items-center overflow-x-auto">
 					{dummyLives.map((live, index) => (
-						<Link href={'/nv'} key={index} className='shrink-0'>
+						<Link href={'/nv'} key={index} className="shrink-0">
 							<Image
 								height={30}
 								width={30}
