@@ -6,9 +6,9 @@ const HeroBanner = () => {
 	const dummyLives = Array(4).fill(4);
 
 	return (
-		<div className='w-full h-[60vh] bg-[url("/assets/dummy/thumbnail.jpeg")] bg-cover'>
-			<div className="w-full h-full flex items-end p-2 lg:p-10 bg-opacity-60 bg-slate-200">
-				<div className="ml-2 xl:ml-44 w-1/2">
+		<div className='w-full h-[60vh] bg-[url("/assets/dummy/thumbnail.jpeg")] bg-cover relative'>
+			<div className="w-full h-full flex-col flex md:flex-row items-end md:p-2 lg:p-10 bg-opacity-60 bg-slate-200">
+				<div className="ml-2 xl:ml-44 md:w-1/2 w-full p-2">
 					<LiveIndicator />
 					<h3 className="mt-5 font-semibold">Call of Duty</h3>
 					<h2 className="font-bold text-3xl mb-5">Warzone 2.0</h2>
@@ -26,9 +26,9 @@ const HeroBanner = () => {
 						Watch
 					</button>
 				</div>
-				<div className="h-44 w-full flex items-center">
+				<div className="h-44 w-full flex items-center overflow-x-auto">
 					{dummyLives.map((live, index) => (
-						<Link href={'/nv'} key={index}>
+						<Link href={'/nv'} key={index} className='shrink-0'>
 							<Image
 								height={30}
 								width={30}

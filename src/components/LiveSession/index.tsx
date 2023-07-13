@@ -17,9 +17,9 @@ function LiveSession({ streams }: { streams: any }) {
 					/>
 				))}
 			</div>
-			<div className="bg-slate-900 px-10 rounded-3xl mt-10 py-5">
-				<h1 className="text-3xl font-bold mb-5">From channels you follow</h1>
-				<div className="flex items-center gap-4 w-full overflow-x-auto">
+			<div className="bg-slate-900 md:px-10 md:rounded-3xl mt-10 py-5">
+				<h1 className="text-xl px-5 md:px-0 md:text-3xl font-bold mb-5">From channels you follow</h1>
+				<div className="flex items-center px-5 md:px-0 gap-4 w-full overflow-x-auto">
 					{Array.from({ length: 12 }).map((_, index) => {
 						return (
 							<div
