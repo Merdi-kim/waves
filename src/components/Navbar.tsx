@@ -48,8 +48,8 @@ const Navbar = ({
 	};
 
 	return (
-		<div className="h-20 w-full relative flex flex-col sm:flex-row items-center px-4 lg:px-10 justify-between">
-			<div className="hidden md:flex items-center justify-center">
+		<div className="sm:h-20 w-full relative flex flex-col-reverse sm:flex-row items-center px-4 lg:px-8 justify-between">
+			<div className="hidden lg:flex items-center justify-center">
 				<Image
 					height={20}
 					width={20}
@@ -59,21 +59,21 @@ const Navbar = ({
 				/>
 				<span className="font-bold">Browse</span>
 			</div>
-			<div className="w-[350px] lg:w-[400px] h-7 px-2 flex">
+			<div className="w-[350px] lg:w-[400px] h-8 my-4 sm:my-0 sm:h-8 px-2 flex items-center bg-neutral-700 rounded-lg">
 				<Image
-					height={20}
-					width={20}
+					height={15}
+					width={15}
 					src={'/assets/search.svg'}
 					className="h-6 w-6"
 					alt="search"
 				/>
 				<input
 					type="text"
-					className="flex-1 h-full border-none outline-none placeholder-slate-300 text-sm mx-2 bg-gray-900 rounded-lg"
+					className="flex-1 h-full border-none outline-none bg-transparent placeholder-slate-400 text-sm mx-2"
 					placeholder="Search everything"
 				/>
 			</div>
-			<div className="w-[150px] lg:w-[200px] h-4 flex items-center">
+			<div className="w-full h-16 sm:w-[150px] sm:h-4 flex items-center justify-end">
 				{!profile ? (
 					<button
 						onClick={login}

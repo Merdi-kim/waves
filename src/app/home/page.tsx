@@ -18,8 +18,8 @@ const Home = () => {
 
 	useEffect(() => {
 		const fetchData = async () => {
-			//await db.init();
-			//const reelsData = await db.get('reels', ['__id__', 'desc']);
+			await db.init();
+			const reelsData = await db.get('reels', ['__id__', 'desc']);
 			const { data: streams } = await axios.get(
 				'https://livepeer.studio/api/stream?streamsonly=1&filters=[{"id": "isActive", "value": true}]',
 				{
@@ -30,7 +30,7 @@ const Home = () => {
 				}
 			);
 			setStreamsData(streams);
-			//setReels(reelsData);
+			setReels(reelsData);
 		};
 		fetchData();
 	}, []);
@@ -38,7 +38,7 @@ const Home = () => {
 	return (
 		<RecoilRoot>
 			<div className="min-h-full w-full flex">
-				<div className="hidden sm:block sm:w-[120px] md:w-[250px] overlow-hidden bg-neutral-800">
+				<div className="hidden sm:block sm:w-[120px] md:w-[250px] overlow-hidden bg-neutral-700">
 					<Sidebar />
 				</div>
 				<div className="w-full sm:w-[calc(100%-120px)] md:w-[calc(100%-250px)]">
@@ -48,7 +48,7 @@ const Home = () => {
 						<LiveSession streams={streamsData} />
 						<PopularCategoriesFeed />
 					</div>
-					<div className="flex flex-wrap">
+					<div className="flex justify-evenly flex-wrap px-2 md:px-10">
 						{reels?.map((reel, index) => (
 							<ReelCard key={index} reel={reel} />
 						))}

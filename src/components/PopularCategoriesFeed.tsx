@@ -30,7 +30,9 @@ const PopularCategoriesFeed = () => {
 							className="md:h-[12vh] md:w-[8vw] h-[70px] w-[70px] object-cover rounded-lg"
 						/>
 						<div className="ml-4 my-1 md:my-3">
-							<h2 className="font-bold text-xl md:text-lg">The mystery of Hayden</h2>
+							<h2 className="font-bold text-xl md:text-lg">
+								The mystery of Hayden
+							</h2>
 							<p className="text-xs my-2">
 								<span className="font-bold">42k</span> followers
 							</p>
