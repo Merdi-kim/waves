@@ -6,3 +6,15 @@ html {
 	background-color: black;
 	color: white;
 }
+
+::-webkit-scrollbar {
+	background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+	background-color: transparent;
+}
+
+::-webkit-scrollbar-track {
+	background-color: transparent;
+}
