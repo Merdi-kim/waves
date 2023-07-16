@@ -1,13 +1,18 @@
 const ReelCard = ({ reel }: { reel: any }) => {
 	return (
-		<div className="flex-none w-[250px] md:w-[200px] m-2 rounded-lg">
-			<video
-				className="h-[300px] w-[250px] bg-gray-500 rounded-lg object-cover"
-				id="reel"
-				controls
-				src={`https://arweave.net/${reel.reelTxId}`}
-			></video>
-			<p className="line-clamp-2 pl-1">{reel.title}</p>
+		<div className="flex flex-col gap-2 rounded-lg ml-4">
+			<div className="w-full h-[18.75rem] relative p-2 rounded-lg shrink-0">
+				<video
+					className="absolute z-10 w-auto 
+				min-w-full min-h-full max-w-full rounded-lg"
+					id="reel"
+					controls
+					src={`https://arweave.net/${reel.reelTxId}`}
+				></video>
+			</div>
+			<p className="line-clamp-2 w-full py-8 pl-2 max-w-[31rem]">
+				{reel.title}
+			</p>
 		</div>
 	);
 };
