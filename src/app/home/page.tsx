@@ -32,8 +32,6 @@ const responsive = {
 	},
 };
 
-
-
 const Home = () => {
 	const [closeModal, setCloseModal] = useState(true);
 	const [reels, setReels] = useState([]);
