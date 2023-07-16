@@ -1,7 +1,6 @@
 import { BsChatSquareDots } from 'react-icons/bs';
 import { IoSettingsOutline } from 'react-icons/io5';
 import SidebarTitle from './partials/SibebarTitle';
-import { HiOutlineClipboardList } from 'react-icons/hi';
 
 const ChatAndSettings = () => {
 	return (
