@@ -11,6 +11,7 @@ import ReelCard from '@/components/ui/ReelCard';
 import { RecoilRoot } from 'recoil';
 import axios, { AxiosResponse } from 'axios';
 import Carousel from 'react-multi-carousel';
+import PeopleYouCanFollow from '@/components/PeopleYouCanFollow';
 
 const responsive = {
 	superLargeDesktop: {
@@ -30,6 +31,8 @@ const responsive = {
 		items: 1,
 	},
 };
+
+
 
 const Home = () => {
 	const [closeModal, setCloseModal] = useState(true);
@@ -66,7 +69,7 @@ const Home = () => {
 					<HeroBanner />
 					<div className="md:px-10">
 						<LiveSession streams={streamsData} />
-						<PopularCategoriesFeed />
+						<PeopleYouCanFollow />
 					</div>
 					<div className="h-[18.75rem] px-2 md:px-10 gap-2">
 						<Carousel responsive={responsive}>
