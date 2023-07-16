@@ -10,6 +10,7 @@ import Sidebar from '@/components/SideBar';
 import ReelCard from '@/components/ui/ReelCard';
 import { RecoilRoot } from 'recoil';
 import axios, { AxiosResponse } from 'axios';
+import PeopleYouCanFollow from '@/components/PeopleYouCanFollow';
 
 const Home = () => {
 	const [closeModal, setCloseModal] = useState(true);
@@ -46,7 +47,7 @@ const Home = () => {
 					<HeroBanner />
 					<div className="md:px-10">
 						<LiveSession streams={streamsData} />
-						<PopularCategoriesFeed />
+						<PeopleYouCanFollow />
 					</div>
 					<div className="flex justify-evenly flex-wrap px-2 md:px-10">
 						{reels?.map((reel, index) => (
