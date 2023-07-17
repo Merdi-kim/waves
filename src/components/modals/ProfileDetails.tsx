@@ -1,5 +1,8 @@
+import { selectedHandle } from '@/lib/recoil';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 import { Dispatch, SetStateAction } from 'react';
+import { useRecoilState } from 'recoil';
 
 const ProfileDetails = ({
 	setShowProfileDetails,
@@ -12,8 +15,16 @@ const ProfileDetails = ({
 	stats: any;
 	profilePicture: string;
 }) => {
+	const router = useRouter();
+	const [_, setSelectedProfile] = useRecoilState(selectedHandle);
+
+	const logout = () => {
+		setSelectedProfile(null);
+		setShowProfileDetails(false);
+	};
+
 	return (
-		<div className="absolute top-0 right-0 m-2 flex flex-col p-2 bg-neutral-600 shadow-xl rounded-lg">
+		<div className="absolute top-0 right-0 m-2 flex flex-col p-2 bg-neutral-600 shadow-xl rounded-lg z-10">
 			<div className="flex items-center justify-end">
 				<Image
 					height={20}
@@ -49,7 +60,10 @@ const ProfileDetails = ({
 				</div>
 			</div>
 			<div className="flex justify-center mt-8">
-				<button className="w-[250px] h-6 rounded-lg mb-3 text-red-500 font-bold bg-slate-400 hover:bg-slate-500 ">
+				<button
+					onClick={logout}
+					className="w-[250px] h-6 rounded-lg mb-3 text-red-500 font-bold bg-slate-400 hover:bg-slate-500 "
+				>
 					Log out
 				</button>
 			</div>
