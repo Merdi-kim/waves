@@ -15,7 +15,7 @@ const Followings = () => {
 	}, []);
 
 	return (
-		<div className="flex flex-col gap-2 border-b border-white pb-8">
+		<div className="flex flex-col gap-2 border-b items-center justify-center md:items-start md:justify-start border-white pb-8">
 			{recommendedAccounts?.map(({ handle, picture }, index) => (
 				<Following
 					key={`following-profile-${index}`}
