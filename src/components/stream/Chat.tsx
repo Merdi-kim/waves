@@ -20,14 +20,14 @@ const Chat = ({ isCreator = false }: { isCreator?: boolean }) => {
 				<MdOutlineClose className="w-7 h-7 text-white" />
 			</div>
 			<div
-				className={`absolute bottom-8 rounded-2xl w-[95%] ml-5 mx-auto px-10 ${
+				className={`absolute bottom-0 md:bottom-8 md:rounded-2xl w-full md:w-[95%] md:ml-5 mx-auto md:px-3 md:px-10 ${
 					isCreator ? 'bg-black/60' : 'bg-black '
-				} py-5 flex justify-between items-center`}
+				} py-3 md:py-5 px-3 md:px-0 flex justify-between items-center`}
 			>
 				<input
 					type="text"
 					placeholder="Send a Message to everyone"
-					className="bg-transparent w-full py-4 outline-none"
+					className="bg-transparent w-full md:py-4 pr-4 md:pr-0 outline-none"
 				/>
 				<div className="flex gap-2">
 					<BsEmojiSmile className="w-6 h-6" />

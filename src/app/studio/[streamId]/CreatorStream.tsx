@@ -2,8 +2,7 @@ import Chat from '@/components/stream/Chat';
 import StreamingFooter from '@/components/stream/StreamingFooter';
 import { useCreateStream } from '@livepeer/react';
 import { Client } from '@livepeer/webrtmp-sdk';
-//import { useRouter } from 'next/navigation'
-import React, { useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { LuUsers } from 'react-icons/lu';
 import { PiUploadSimpleBold } from 'react-icons/pi';
 
@@ -64,11 +63,11 @@ const CreatorStream = ({ streamName }: { streamName: string }) => {
 	};
 
 	return (
-		<div className="h-screen overflow-hidden">
-			<div className="justify-between flex items-center px-10 w-full pt-10">
+		<div className="h-screen xl:overflow-hidden">
+			<div className="justify-between flex items-start md:items-center px-4 md:px-10 w-full pt-10">
 				<h1 className="text-3xl text-white uppercase font-bold">Wave</h1>
-				<div className="flex items-center gap-3">
-					<div className="flex items-center gap-2 mr-10">
+				<div className="flex md:flex-row flex-col-reverse items-end md:items-center gap-3">
+					<div className="flex items-center gap-2 md:mr-10">
 						<div className="h-2 bg-primary rounded-full w-2" />
 						<span className="text-xl">Live</span>
 					</div>
@@ -84,13 +83,16 @@ const CreatorStream = ({ streamName }: { streamName: string }) => {
 					</div>
 				</div>
 			</div>
-			<div className="grid grid-cols-12 grid-rows-5 h-screen pb-56 pt-10 gap-x-10 px-10">
-				<div className="col-span-12 row-span-5 h-full w-full flex items-center rounded-2xl overflow-hidden relative">
-					<video className="App-video h-full w-full" ref={videoEl} />
-					<div className="absolute right-0 top-0 z-50 w-[30%] h-full">
+			<div className="grid grid-cols-12 grid-rows-5 md:h-screen md:pb-56 pt-10 md:px-10">
+				<div className="col-span-12 row-span-5 h-[500px] md:h-full w-full flex items-center md:rounded-2xl overflow-hidden relative">
+					<video className="App-video h-full md:h-full w-full object-cover rotate-x-180" ref={videoEl} />
+					<div className="hidden md:block md:absolute right-0 top-0 z-50 md:w-[40%] xl:w-[30%] h-full transition-all">
 						<Chat isCreator={true} />
 					</div>
 				</div>
+			</div>
+			<div className="md:hidden block mt-10 pb-32 z-50 w-full h-[45rem]">
+				<Chat isCreator={true} />
 			</div>
 			<StreamingFooter />
 		</div>
