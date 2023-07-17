@@ -21,8 +21,8 @@ const LoginModal = ({
 			<div className="w-11/12 sm:w-9/12 lg:w-6/12 pb-8 flex flex-col items-center bg-neutral-800 rounded-lg">
 				<div className="h-6 w-full flex items-center justify-end">
 					<Image
-						height={25}
-						width={25}
+						height={40}
+						width={40}
 						alt="close icon"
 						onClick={() => closeModal(true)}
 						className="bg-white rounded-[50%] cursor-pointer"
