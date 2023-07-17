@@ -49,6 +49,7 @@ const Navbar = ({
 
 	return (
 		<div className="sm:h-20 w-full relative flex flex-col-reverse sm:flex-row items-center px-4 lg:px-8 justify-between">
+			<div className="sm:hidden text-3xl font-bold absolute top-4 left-4">WAVE</div>
 			<div className="hidden lg:flex items-center justify-center">
 				<Image
 					height={20}
