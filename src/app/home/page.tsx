@@ -10,6 +10,27 @@ import Sidebar from '@/components/SideBar';
 import ReelCard from '@/components/ui/ReelCard';
 import { RecoilRoot } from 'recoil';
 import axios, { AxiosResponse } from 'axios';
+import Carousel from 'react-multi-carousel';
+import PeopleYouCanFollow from '@/components/PeopleYouCanFollow';
+
+const responsive = {
+	superLargeDesktop: {
+		breakpoint: { max: 4000, min: 3000 },
+		items: 5,
+	},
+	desktop: {
+		breakpoint: { max: 3000, min: 1204 },
+		items: 3,
+	},
+	tablet: {
+		breakpoint: { max: 1204, min: 745 },
+		items: 2,
+	},
+	mobile: {
+		breakpoint: { max: 745, min: 0 },
+		items: 1,
+	},
+};
 
 const Home = () => {
 	const [closeModal, setCloseModal] = useState(true);
@@ -41,17 +62,19 @@ const Home = () => {
 				<div className="hidden sm:block sm:w-[120px] md:w-[250px] overlow-hidden bg-neutral-700">
 					<Sidebar />
 				</div>
-				<div className="w-full sm:w-[calc(100%-120px)] md:w-[calc(100%-250px)]">
+				<div className="w-full sm:w-[calc(100%-120px)] md:w-[calc(100%-250px)] pb-10">
 					<Navbar closeModal={setCloseModal} />
-					<HeroBanner />
+					<HeroBanner reel={reels[0]} />
 					<div className="md:px-10">
 						<LiveSession streams={streamsData} />
-						<PopularCategoriesFeed />
+						<PeopleYouCanFollow />
 					</div>
-					<div className="flex justify-evenly flex-wrap px-2 md:px-10">
-						{reels?.map((reel, index) => (
-							<ReelCard key={index} reel={reel} />
-						))}
+					<div className="h-[18.75rem] px-2 md:px-10 gap-2">
+						<Carousel responsive={responsive}>
+							{reels?.map((reel, index) => (
+								<ReelCard key={index} reel={reel} />
+							))}
+						</Carousel>
 					</div>
 					{!closeModal && <LoginModal closeModal={setCloseModal} />}
 				</div>
