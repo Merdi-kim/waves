@@ -64,7 +64,7 @@ const Home = () => {
 				</div>
 				<div className="w-full sm:w-[calc(100%-120px)] md:w-[calc(100%-250px)] pb-10">
 					<Navbar closeModal={setCloseModal} />
-					<HeroBanner />
+					<HeroBanner reel={reels[0]} />
 					<div className="md:px-10">
 						<LiveSession streams={streamsData} />
 						<PeopleYouCanFollow />
