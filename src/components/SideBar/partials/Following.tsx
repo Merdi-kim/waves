@@ -8,28 +8,28 @@ type FollowingProps = ComponentProps<'div'> & {
 };
 
 const Following: FC<FollowingProps> = (props) => {
-  const { username, profilePicture, ...rest } = props;
-  let profile_url;
-  if (profilePicture != null) {
-    profile_url = formatPicture(profilePicture);
-  }
+	const { username, profilePicture, ...rest } = props;
+	let profile_url;
+	if (profilePicture != null) {
+		profile_url = formatPicture(profilePicture);
+	}
 
-  return (
-    <div className="flex justify-between items-center" {...rest}>
-      <div className="flex justify-center items-center gap-3">
-        <Image
-          src={profile_url}
-          width={40}
-          height={40}
-          alt={username}
-          className="rounded-full"
-        />
-        <span className="text-white font-bold hidden md:block ">
-          {username}
-        </span>
-      </div>
-    </div>
-  );
+	return (
+		<div className="flex justify-between items-center" {...rest}>
+			<div className="flex justify-center items-center gap-3">
+				<Image
+					src={profile_url}
+					width={40}
+					height={40}
+					alt={username}
+					className="rounded-full"
+				/>
+				<span className="text-white font-bold hidden md:block ">
+					{username}
+				</span>
+			</div>
+		</div>
+	);
 };
 
 export default Following;
