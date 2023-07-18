@@ -6,7 +6,7 @@ const Chat = ({ isCreator = false }: { isCreator?: boolean }) => {
 	return (
 		<div
 			className={`relative ${
-				isCreator ? 'bg-[#222323]/50' : 'bg-[#222323]'
+				isCreator ? 'bg-white' : 'bg-white'
 			}  h-full w-full rounded-2xl`}
 		>
 			<div className="flex justify-between px-5 py-8 border-b border-gray-600">
@@ -21,7 +21,7 @@ const Chat = ({ isCreator = false }: { isCreator?: boolean }) => {
 			</div>
 			<div
 				className={`absolute bottom-0 md:bottom-8 md:rounded-2xl w-full md:w-[95%] md:ml-5 mx-auto md:px-3 md:px-10 ${
-					isCreator ? 'bg-black/60' : 'bg-black '
+					isCreator ? 'bg-gray-300' : 'bg-gray-300'
 				} py-3 md:py-5 px-3 md:px-0 flex justify-between items-center`}
 			>
 				<input

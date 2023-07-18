@@ -25,7 +25,10 @@ const PeopleYouCanFollow = () => {
 	return (
 		<div>
 			<h1 className="text-2xl font-extrabold mb-8">Artists You can follow</h1>
-			<Carousel responsive={responsive} className="bg-slate-950 p-2 rounded-lg">
+			<Carousel
+				responsive={responsive}
+				className="bg-white text-black p-2 rounded-lg"
+			>
 				{Array.from({ length: 10 }).map((el, index) => {
 					return (
 						<div

@@ -59,7 +59,7 @@ const Home = () => {
 	return (
 		<RecoilRoot>
 			<div className="min-h-full w-full flex">
-				<div className="hidden sm:block sm:w-[120px] md:w-[250px] overlow-hidden bg-neutral-700">
+				<div className="hidden sm:block sm:w-[120px] md:w-[250px] overlow-hidden bg-gray-100">
 					<Sidebar />
 				</div>
 				<div className="w-full sm:w-[calc(100%-120px)] md:w-[calc(100%-250px)] pb-10">
@@ -69,7 +69,7 @@ const Home = () => {
 						<LiveSession streams={streamsData} />
 						<PeopleYouCanFollow />
 					</div>
-					<div className="h-[18.75rem] px-2 md:px-10 gap-2">
+					<div className="h-[18.75rem] mt-10 px-2 md:px-10 gap-2">
 						<Carousel responsive={responsive}>
 							{reels?.map((reel, index) => (
 								<ReelCard key={index} reel={reel} />

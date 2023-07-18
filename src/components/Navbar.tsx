@@ -49,7 +49,9 @@ const Navbar = ({
 
 	return (
 		<div className="sm:h-20 w-full relative flex flex-col-reverse sm:flex-row items-center px-4 lg:px-8 justify-between">
-			<div className="sm:hidden text-3xl font-bold absolute top-4 left-4">WAVE</div>
+			<div className="sm:hidden text-3xl font-bold absolute top-4 left-4">
+				WAVE
+			</div>
 			<div className="hidden lg:flex items-center justify-center">
 				<Image
 					height={20}
@@ -60,7 +62,7 @@ const Navbar = ({
 				/>
 				<span className="font-bold">Browse</span>
 			</div>
-			<div className="w-[350px] lg:w-[400px] h-8 my-4 sm:my-0 sm:h-8 px-2 flex items-center bg-neutral-700 rounded-lg">
+			<div className="w-[350px] lg:w-[400px] my-4 flex items-center bg-white p-3 rounded-lg">
 				<Image
 					height={15}
 					width={15}
@@ -70,7 +72,8 @@ const Navbar = ({
 				/>
 				<input
 					type="text"
-					className="flex-1 h-full border-none outline-none bg-transparent placeholder-slate-400 text-sm mx-2"
+					className="flex-1 h-full border-none outline-none bg-transparent px-2 py-1.5
+					 placeholder-slate-400 text-sm mx-2"
 					placeholder="Search everything"
 				/>
 			</div>

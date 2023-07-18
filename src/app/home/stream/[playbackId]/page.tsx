@@ -33,13 +33,13 @@ const page = ({ params }: { params: { playbackId: string } }) => {
 		<LivepeerConfig client={client} theme={livepeerTheme}>
 			<div className="h-screen overflow-hidden">
 				<div className="justify-between flex items-center px-10 w-full pt-10">
-					<h1 className="text-3xl text-white uppercase font-bold">Wave</h1>
+					<h1 className="text-3xl text-black uppercase font-bold">Wave</h1>
 					<div className="flex items-center gap-3">
 						<div className="flex items-center gap-2 mr-10">
 							<div className="h-2 bg-primary rounded-full w-2" />
 							<span className="text-xl">Live</span>
 						</div>
-						<div className="flex items-center gap-3 text-white border rounded-xl border-white/50 p-2">
+						<div className="flex items-center gap-3 text-black border rounded-xl border-black p-2">
 							<LuUsers className="w-6 h-6" /> <span className="text-xl">6</span>
 						</div>
 						<div

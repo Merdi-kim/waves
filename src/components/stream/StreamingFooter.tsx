@@ -13,7 +13,7 @@ const StreamingFooter = () => {
 	const router = useRouter();
 
 	return (
-		<div className="text-white fixed bottom-0 w-full flex justify-between items-center px-4 md:px-10 pb-5 md:pb-10">
+		<div className="text-black fixed bottom-0 w-full flex justify-between items-center px-4 md:px-10 pb-5 md:pb-10">
 			<div className="flex md:flex-row flex-col items-center gap-5">
 				<PiMicrophoneSlash className="w-6 h-6 cursor-pointer" />
 				<PiVideoCameraLight className="w-6 h-6 cursor-pointer" />
