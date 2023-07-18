@@ -1,4 +1,5 @@
 'use client';
+
 import Chat from '@/components/stream/Chat';
 import StreamingFooter from '@/components/stream/StreamingFooter';
 import { LuUsers } from 'react-icons/lu';
@@ -11,6 +12,7 @@ import {
 	studioProvider,
 } from '@livepeer/react';
 import { useRouter } from 'next/navigation';
+import { playbackID } from '@/lib/recoil';
 
 const client = createReactClient({
 	provider: studioProvider({ apiKey: 'yourStudioApiKey' }),
@@ -59,11 +61,10 @@ const page = ({ params }: { params: { playbackId: string } }) => {
 							autoPlay
 							showTitle={false}
 							showPipButton
-							//poster={<PosterImage />}
 						/>
 					</div>
 					<div className="row-span-5 col-span-4">
-						<Chat />
+						<Chat liveStreamId={params.playbackId} />
 					</div>
 				</div>
 				<StreamingFooter />
