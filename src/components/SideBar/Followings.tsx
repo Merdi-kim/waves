@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
-import Following from './partials/Following';
 import { recommendedProfiles } from '@/lib/lens/lensClient';
+import Following from './partials/Following';
 
-const Followings = () => {
+function Followings() {
 	const [recommendedAccounts, setRecommendedAccounts] = useState([]);
 
 	useEffect(() => {
@@ -25,6 +25,6 @@ const Followings = () => {
 			))}
 		</div>
 	);
-};
+}
 
 export default Followings;

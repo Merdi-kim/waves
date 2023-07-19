@@ -4,7 +4,7 @@ import { useRouter } from 'next/navigation';
 import { Dispatch, SetStateAction } from 'react';
 import { useRecoilState } from 'recoil';
 
-const ProfileDetails = ({
+function ProfileDetails({
 	setShowProfileDetails,
 	handle,
 	stats,
@@ -14,7 +14,7 @@ const ProfileDetails = ({
 	handle: string;
 	stats: any;
 	profilePicture: string;
-}) => {
+}) {
 	const router = useRouter();
 	const [_, setSelectedProfile] = useRecoilState(selectedHandle);
 
@@ -69,6 +69,6 @@ const ProfileDetails = ({
 			</div>
 		</div>
 	);
-};
+}
 
 export default ProfileDetails;

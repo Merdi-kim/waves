@@ -1,14 +1,14 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import LiveIndicator from './ui/LiveIndicator';
 import { useState } from 'react';
+import LiveIndicator from './ui/LiveIndicator';
 
-const HeroBanner = ({ reel }: { reel: any }) => {
+function HeroBanner({ reel }: { reel: any }) {
 	const [playVideo, setPlayVideo] = useState(false);
 
 	const watchVideo = () => {
-		let vid = document.getElementById('herobannerVideo');
-		//@ts-ignore
+		const vid = document.getElementById('herobannerVideo');
+		// @ts-ignore
 		vid?.play();
 		setPlayVideo(true);
 	};
@@ -35,6 +35,6 @@ const HeroBanner = ({ reel }: { reel: any }) => {
 			)}
 		</div>
 	);
-};
+}
 
 export default HeroBanner;

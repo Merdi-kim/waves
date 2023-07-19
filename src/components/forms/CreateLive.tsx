@@ -1,31 +1,32 @@
 'use client';
+
 import { useCreateStream } from '@livepeer/react';
 import { useRouter } from 'next/navigation';
 import React, { FormEvent, useEffect, useState } from 'react';
 
-const CreateLive = () => {
+function CreateLive() {
 	const [title, setTitle] = useState('new stream');
 	const router = useRouter();
 
 	useEffect(() => {
 		const navigatorDevices = navigator.mediaDevices;
-		var video: any = document.getElementById('videoCam');
+		const video: any = document.getElementById('videoCam');
 		if (navigatorDevices.getUserMedia) {
 			navigatorDevices
 				.getUserMedia({ audio: true, video: true })
-				.then(function (vidStream) {
+				.then((vidStream) => {
 					if ('srcObject' in video!) {
 						video.srcObject = vidStream;
 					} else {
-						//@ts-ignore
+						// @ts-ignore
 						video!.src = window.URL.createObjectURL(vidStream);
 					}
 					video!.onloadedmetadata = function () {
 						video!.play();
 					};
 				})
-				.catch(function (e) {
-					console.log(e.name + ': ' + e.message);
+				.catch((e) => {
+					console.log(`${e.name}: ${e.message}`);
 				});
 		} else {
 			video!.src = 'somevideo.webm'; // fallback.
@@ -53,7 +54,7 @@ const CreateLive = () => {
 					placeholder="Your title goes here..."
 					onChange={(e) => setTitle(e.target.value)}
 				/>
-				<video className="my-4 h-56 w-full rounded-lg" id="videoCam"></video>
+				<video className="my-4 h-56 w-full rounded-lg" id="videoCam" />
 				<span className="text-gray-400">You look good 🫠</span>
 				<button className="px-10 bg-blue-600 py-3 text-white my-8 rounded-xl">
 					Go live
@@ -61,6 +62,6 @@ const CreateLive = () => {
 			</form>
 		</div>
 	);
-};
+}
 
 export default CreateLive;

@@ -1,4 +1,5 @@
 'use client';
+
 import HeroBanner from '@/components/HeroBanner';
 import LiveSession from '@/components/LiveSession';
 import Navbar from '@/components/Navbar';
@@ -32,7 +33,7 @@ const responsive = {
 	},
 };
 
-const Home = () => {
+function Home() {
 	const [closeModal, setCloseModal] = useState(true);
 	const [reels, setReels] = useState([]);
 	const [streamsData, setStreamsData] = useState<AxiosResponse<any, any>>();
@@ -81,6 +82,6 @@ const Home = () => {
 			</div>
 		</RecoilRoot>
 	);
-};
+}
 
 export default Home;

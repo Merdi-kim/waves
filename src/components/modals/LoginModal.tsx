@@ -1,14 +1,14 @@
 import { Dispatch, SetStateAction } from 'react';
-import LensProfile from '../ui/LensProfile';
 import Image from 'next/image';
 import { useRecoilValue } from 'recoil';
 import { lensProfiles, selectedHandle } from '@/lib/recoil';
+import LensProfile from '../ui/LensProfile';
 
-const LoginModal = ({
+function LoginModal({
 	closeModal,
 }: {
 	closeModal: Dispatch<SetStateAction<boolean>>;
-}) => {
+}) {
 	const profiles = useRecoilValue(lensProfiles);
 	const handle = useRecoilValue(selectedHandle);
 
@@ -46,6 +46,6 @@ const LoginModal = ({
 			</div>
 		</div>
 	);
-};
+}
 
 export default LoginModal;

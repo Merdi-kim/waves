@@ -1,4 +1,5 @@
 'use client';
+
 import {
 	authenticate,
 	generateChallenge,
@@ -13,11 +14,11 @@ import { useRecoilState, useRecoilValue } from 'recoil';
 import Link from 'next/link';
 import ProfileDetails from './modals/ProfileDetails';
 
-const Navbar = ({
+function Navbar({
 	closeModal,
 }: {
 	closeModal: Dispatch<SetStateAction<boolean>>;
-}) => {
+}) {
 	const [showProfileDetails, setShowProfileDetails] = useState(false);
 	const [, setLensProfiles] = useRecoilState(lensProfiles);
 	const profile = useRecoilValue(selectedHandle);
@@ -28,7 +29,7 @@ const Navbar = ({
 
 	const login = async () => {
 		try {
-			//@ts-ignore
+			// @ts-ignore
 			const provider = new ethers.providers.Web3Provider(window.ethereum);
 			const [address] = await provider.send('eth_requestAccounts', []);
 			const challengeResponse = await generateChallenge(address!);
@@ -37,7 +38,7 @@ const Navbar = ({
 				challengeResponse.data.challenge.text
 			);
 			const { data } = await authenticate(address, signature!);
-			const localStorage = window.localStorage;
+			const { localStorage } = window;
 			localStorage.setItem('auth_token', data.authenticate.accessToken);
 			const { data: profilesData } = await getProfiles(address!);
 			setLensProfiles(profilesData.profiles.items);
@@ -56,7 +57,7 @@ const Navbar = ({
 				<Image
 					height={20}
 					width={20}
-					src={'/assets/browse.svg'}
+					src="/assets/browse.svg"
 					className="h-4 w-4 mr-2"
 					alt="browse"
 				/>
@@ -66,7 +67,7 @@ const Navbar = ({
 				<Image
 					height={15}
 					width={15}
-					src={'/assets/search.svg'}
+					src="/assets/search.svg"
 					className="h-6 w-6"
 					alt="search"
 				/>
@@ -87,7 +88,7 @@ const Navbar = ({
 					</button>
 				) : (
 					<div className="flex items-center">
-						<Link href={'/new'}>
+						<Link href="/new">
 							<Image
 								height={20}
 								width={20}
@@ -124,6 +125,6 @@ const Navbar = ({
 			)}
 		</div>
 	);
-};
+}
 
 export default Navbar;

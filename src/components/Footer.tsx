@@ -6,9 +6,10 @@ import {
 	FaYoutube,
 } from 'react-icons/fa';
 import Button from './ui/Button';
+
 const menus = ['Home', 'About', 'Contact'];
 
-const Footer = () => {
+function Footer() {
 	return (
 		<footer className="w-full bg-[#9AA3C4]/50 pt-20 pb-16 px-5 mt-10">
 			<div className="flex md:flex-col flex-row justify-between max-w-[100rem] mx-auto gap-5 text-[#172554]">
@@ -44,6 +45,6 @@ const Footer = () => {
 			</div>
 		</footer>
 	);
-};
+}
 
 export default Footer;

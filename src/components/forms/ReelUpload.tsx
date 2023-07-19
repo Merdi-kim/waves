@@ -2,12 +2,12 @@ import db from '@/lib/weaveDB';
 import Image from 'next/image';
 import React, { ChangeEvent, FormEvent, useState } from 'react';
 import { useRouter } from 'next/navigation';
-//@ts-ignore
+// @ts-ignore
 import fileReaderStream from 'filereader-stream';
 import { WebBundlr } from '@bundlr-network/client';
 import { providers } from 'ethers';
 
-const ReelUpload = () => {
+function ReelUpload() {
 	const [video, setVideo] = useState<File>();
 	const [metadata, setMetadata] = useState<{
 		title: string;
@@ -36,7 +36,7 @@ const ReelUpload = () => {
 			provider
 		);
 		await bundlr.ready();
-		//await bundlr.fund(bundlr.utils.toAtomic(0.3));
+		// await bundlr.fund(bundlr.utils.toAtomic(0.3));
 		const dataStream = fileReaderStream(video);
 		const tags = [{ name: 'Content-Type', value: 'video/mp4' }];
 		const { data } = await bundlr.uploader.chunkedUploader.uploadData(
@@ -95,7 +95,7 @@ const ReelUpload = () => {
 						id="reelPreview"
 						controls
 						src={URL.createObjectURL(video)}
-					></video>
+					/>
 				)}
 				<button
 					type="submit"
@@ -106,6 +106,6 @@ const ReelUpload = () => {
 			</form>
 		</div>
 	);
-};
+}
 
 export default ReelUpload;
