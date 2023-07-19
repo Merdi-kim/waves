@@ -81,7 +81,7 @@ function CreatorStream({ streamName }: { streamName: string }) {
 							<LuUsers className="w-6 h-6" /> <span className="text-xl">6</span>
 						</div>
 						<div
-							onClick={/* () => router.replace('/home') */ startStream}
+							onClick={startStream}
 							className="flex items-center gap-2 bg-primary px-3 py-2.5 rounded-lg cursor-pointer"
 						>
 							<PiUploadSimpleBold className="w-6 h-6 rotate-90 cursor-pointer" />

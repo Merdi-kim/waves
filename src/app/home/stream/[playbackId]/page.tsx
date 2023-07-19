@@ -60,7 +60,7 @@ const page = ({ params }: { params: { playbackId: string } }) => {
 						<div className="col-span-8 row-span-5 h-full w-full flex items-center rounded-2xl overflow-hidden">
 							<Player
 								title="Waterfalls"
-								playbackId={params.playbackId}
+								playbackId= {params.playbackId}
 								autoPlay
 								showTitle={false}
 								showPipButton
