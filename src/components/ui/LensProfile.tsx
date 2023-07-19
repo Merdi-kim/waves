@@ -1,7 +1,7 @@
 import { selectedHandle } from '@/lib/recoil';
 import { useRecoilState } from 'recoil';
 
-const LensProfile = ({ profile }: { profile: any }) => {
+function LensProfile({ profile }: { profile: any }) {
 	const [profileData, setProfileData] = useRecoilState(selectedHandle);
 
 	return (
@@ -16,6 +16,6 @@ const LensProfile = ({ profile }: { profile: any }) => {
 			{profile.handle}
 		</div>
 	);
-};
+}
 
 export default LensProfile;

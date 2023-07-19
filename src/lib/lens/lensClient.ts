@@ -38,8 +38,8 @@ export const getProfiles = (address: string) => {
 	});
 };
 
-export const generateChallenge = (address: string) => {
-	return apolloClient.query({
+export const generateChallenge = (address: string) =>
+	apolloClient.query({
 		query: gql(GET_CHALLENGE),
 		variables: {
 			request: {
@@ -47,16 +47,14 @@ export const generateChallenge = (address: string) => {
 			},
 		},
 	});
-};
 
-export const recommendedProfiles = () => {
-	return apolloClient.query({
+export const recommendedProfiles = () =>
+	apolloClient.query({
 		query: gql(RECOMMENDED_PROFILES),
 	});
-};
 
-export const authenticate = (address: string, signature: string) => {
-	return apolloClient.mutate({
+export const authenticate = (address: string, signature: string) =>
+	apolloClient.mutate({
 		mutation: gql(AUTHENTICATION),
 		variables: {
 			request: {
@@ -65,4 +63,3 @@ export const authenticate = (address: string, signature: string) => {
 			},
 		},
 	});
-};

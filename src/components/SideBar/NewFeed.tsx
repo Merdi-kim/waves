@@ -1,9 +1,9 @@
-import SidebarTitle from './partials/SibebarTitle';
 import { FaWifi } from 'react-icons/fa';
 import { BiChart, BiUser, BiVideo } from 'react-icons/bi';
 import { HiOutlineClipboardList } from 'react-icons/hi';
+import SidebarTitle from './partials/SibebarTitle';
 
-const NewFeed = () => {
+function NewFeed() {
 	return (
 		<div className="border-b border-white pb-8">
 			<SidebarTitle icon={<FaWifi className="w-6 h-6" />} title="Start Live" />
@@ -19,6 +19,6 @@ const NewFeed = () => {
 			/>
 		</div>
 	);
-};
+}
 
 export default NewFeed;

@@ -2,7 +2,7 @@ import { BsChatSquareDots } from 'react-icons/bs';
 import { IoSettingsOutline } from 'react-icons/io5';
 import SidebarTitle from './partials/SibebarTitle';
 
-const ChatAndSettings = () => {
+function ChatAndSettings() {
 	return (
 		<div>
 			<SidebarTitle
@@ -15,6 +15,6 @@ const ChatAndSettings = () => {
 			/>
 		</div>
 	);
-};
+}
 
 export default ChatAndSettings;

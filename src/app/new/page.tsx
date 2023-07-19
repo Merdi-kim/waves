@@ -1,4 +1,5 @@
 'use client';
+
 import CreateLive from '@/components/forms/CreateLive';
 import ReelUpload from '@/components/forms/ReelUpload';
 import {
@@ -8,7 +9,7 @@ import {
 } from '@livepeer/react';
 import React, { useMemo, useState } from 'react';
 
-const CreateMedia = () => {
+function CreateMedia() {
 	const [showReelForm, setShowReelForm] = useState(true);
 	const livepeerClient = useMemo(
 		() =>
@@ -44,6 +45,6 @@ const CreateMedia = () => {
 			</div>
 		</LivepeerConfig>
 	);
-};
+}
 
 export default CreateMedia;

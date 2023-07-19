@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-const PopularCategoriesFeed = () => {
+function PopularCategoriesFeed() {
 	const dummyChannels = Array(4).fill('');
 
 	return (
@@ -25,7 +25,7 @@ const PopularCategoriesFeed = () => {
 						<Image
 							height={20}
 							width={20}
-							src={'/assets/dummy/thumbnail.jpeg'}
+							src="/assets/dummy/thumbnail.jpeg"
 							alt="channel"
 							className="md:h-[12vh] md:w-[8vw] h-[70px] w-[70px] object-cover rounded-lg"
 						/>
@@ -45,6 +45,6 @@ const PopularCategoriesFeed = () => {
 			</div>
 		</div>
 	);
-};
+}
 
 export default PopularCategoriesFeed;

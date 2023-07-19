@@ -9,7 +9,7 @@ import { BsThreeDotsVertical, BsChatLeft } from 'react-icons/bs';
 import { HiOutlineHandRaised } from 'react-icons/hi2';
 import { useRouter } from 'next/navigation';
 
-const StreamingFooter = () => {
+function StreamingFooter() {
 	const router = useRouter();
 
 	return (
@@ -36,6 +36,6 @@ const StreamingFooter = () => {
 			</div>
 		</div>
 	);
-};
+}
 
 export default StreamingFooter;

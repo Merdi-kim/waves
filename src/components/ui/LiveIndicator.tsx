@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-const LiveIndicator = () => {
+function LiveIndicator() {
 	return (
 		<div className="w-20 py-2 flex justify-center items-center bg-red-500 rounded-xl">
 			<Image
@@ -13,6 +13,6 @@ const LiveIndicator = () => {
 			<span>Live</span>
 		</div>
 	);
-};
+}
 
 export default LiveIndicator;
