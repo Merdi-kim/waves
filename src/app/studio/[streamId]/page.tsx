@@ -7,6 +7,7 @@ import {
 	studioProvider,
 } from '@livepeer/react';
 import CreatorStream from './CreatorStream';
+import { RecoilRoot } from 'recoil';
 
 const client = createReactClient({
 	provider: studioProvider({ apiKey: process.env.NEXT_PUBLIC_STUDIO_API_KEY! }),
@@ -24,7 +25,9 @@ const livepeerTheme: ThemeConfig = {
 
 const page = ({ params }: { params: { streamId: string } }) => (
 	<LivepeerConfig client={client} theme={livepeerTheme}>
-		<CreatorStream streamName={params.streamId} />
+		<RecoilRoot>
+			<CreatorStream streamName={params.streamId} />
+		</RecoilRoot>
 	</LivepeerConfig>
 );
 
