@@ -40,7 +40,7 @@ function CreateLive() {
 	};
 
 	return (
-		<div className="w-[500px] flex flex-col items-center rounded-lg p-4 bg-neutral-800">
+		<div className="w-[500px] flex flex-col items-center rounded-lg p-4 bg-white">
 			<h2 className="text-xl font-bold mt-4 mb-8">
 				It is time to broadcast to the world !
 			</h2>
@@ -50,13 +50,13 @@ function CreateLive() {
 			>
 				<input
 					type="text"
-					className="w-full h-8 rounded-lg outline-none border-none px-2 my-4"
+					className="w-full rounded-lg outline-none border-none p-3 my-4"
 					placeholder="Your title goes here..."
 					onChange={(e) => setTitle(e.target.value)}
 				/>
 				<video className="my-4 h-56 w-full rounded-lg" id="videoCam" />
 				<span className="text-gray-400">You look good 🫠</span>
-				<button className="h-8 w-[250px] bg-blue-600 text-white my-8">
+				<button className="px-10 bg-blue-600 py-3 text-white my-8 rounded-xl">
 					Go live
 				</button>
 			</form>

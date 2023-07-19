@@ -52,7 +52,7 @@ function ReelUpload() {
 		router.push('/home');
 	};
 	return (
-		<div className="w-[500px] flex flex-col items-center rounded-lg p-4 bg-neutral-800">
+		<div className="w-[500px] flex flex-col items-center rounded-lg p-4 bg-white">
 			<h2 className="text-xl font-bold mt-4 mb-8">
 				Upload your reel now. The world awaits
 			</h2>
@@ -62,19 +62,19 @@ function ReelUpload() {
 			>
 				<input
 					type="text"
-					className="w-full h-8 rounded-lg outline-none border-none px-2 my-4"
+					className="w-full rounded-lg outline-none bg-gray-300 border-none p-3 my-4"
 					name="title"
 					placeholder="Your title goes here..."
 					onChange={updateMetadata}
 				/>
 				<input
 					type="text"
-					className="w-full h-8 rounded-lg outline-none border-none px-2 my-4"
+					className="w-full rounded-lg outline-none bg-gray-300 border-none p-3 my-4"
 					name="description"
 					placeholder="Your description goes here..."
 					onChange={updateMetadata}
 				/>
-				<label htmlFor="reel" className="cursor-pointer">
+				<label htmlFor="reel" className="cursor-pointer mt-2">
 					<Image
 						height={40}
 						width={40}
@@ -99,7 +99,7 @@ function ReelUpload() {
 				)}
 				<button
 					type="submit"
-					className="h-8 w-[250px] bg-blue-600 text-white my-8"
+					className="px-10 bg-blue-600 py-3 text-white my-8 rounded-xl"
 				>
 					Upload it
 				</button>

@@ -26,6 +26,7 @@ function PeopleYouCanFollow() {
 	return (
 		<div>
 			<h1 className="text-2xl font-extrabold mb-8">Artists You can follow</h1>
+
 			<Carousel responsive={responsive} className="bg-slate-950 p-2 rounded-lg">
 				{Array.from({ length: 10 }).map((el, index) => (
 					<div
@@ -47,6 +48,7 @@ function PeopleYouCanFollow() {
 								</button>
 								<p className="font-extrabold text-sm pl-2">
 									23k <span className="font-normal">Followers</span>
+
 								</p>
 							</div>
 						</div>

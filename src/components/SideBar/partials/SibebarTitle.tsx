@@ -30,7 +30,7 @@ const SibebarTitle: FC<SideBarTitleProps> = (props) => {
 
 	const sidebarClassName = classNames(
 		className,
-		'py-2 sm:px-5 rounded-lg text-white cursor-pointer',
+		'py-2 sm:px-5 rounded-lg text-black cursor-pointer',
 		{
 			'flex gap-4 items-start items-center': direction === 'horizontal',
 			'flex gap-2 justify-center': direction === 'vertical',

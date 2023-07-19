@@ -63,7 +63,7 @@ function Navbar({
 				/>
 				<span className="font-bold">Browse</span>
 			</div>
-			<div className="w-[350px] lg:w-[400px] h-8 my-4 sm:my-0 sm:h-8 px-2 flex items-center bg-neutral-700 rounded-lg">
+			<div className="w-[350px] lg:w-[400px] my-4 flex items-center bg-white p-3 rounded-lg">
 				<Image
 					height={15}
 					width={15}
@@ -73,7 +73,8 @@ function Navbar({
 				/>
 				<input
 					type="text"
-					className="flex-1 h-full border-none outline-none bg-transparent placeholder-slate-400 text-sm mx-2"
+					className="flex-1 h-full border-none outline-none bg-transparent px-2 py-1.5
+					 placeholder-slate-400 text-sm mx-2"
 					placeholder="Search everything"
 				/>
 			</div>

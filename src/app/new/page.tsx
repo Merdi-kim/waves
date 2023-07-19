@@ -24,17 +24,21 @@ function CreateMedia() {
 	return (
 		<LivepeerConfig client={livepeerClient}>
 			<div>
-				<h1 className="text-center my-4 text-3xl font-bold">Waves</h1>
-				<div className="flex h-12 w-full mb-8">
+				<h1 className="text-center my-4 text-3xl font-bold mt-10">Waves</h1>
+				<div className="flex h-12 w-full mb-8 mt-10 md:mx-10">
 					<button
 						onClick={() => setShowReelForm(true)}
-						className={`h-full w-1/2 ${showReelForm && 'bg-slate-600'}`}
+						className={`h-full w-1/2 ${
+							showReelForm && 'bg-primary rounded-xl'
+						}`}
 					>
 						Upload Reel
 					</button>
 					<button
 						onClick={() => setShowReelForm(false)}
-						className={`h-full w-1/2 ${!showReelForm && 'bg-slate-600'}`}
+						className={`h-full w-1/2 ${
+							!showReelForm && 'bg-primary'
+						} rounded-xl`}
 					>
 						Go live
 					</button>
