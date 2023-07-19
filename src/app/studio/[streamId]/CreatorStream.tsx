@@ -1,5 +1,6 @@
 import Chat from '@/components/stream/Chat';
 import StreamingFooter from '@/components/stream/StreamingFooter';
+import db from '@/lib/weaveDB';
 import { useCreateStream } from '@livepeer/react';
 import { Client } from '@livepeer/webrtmp-sdk';
 import { useEffect, useRef } from 'react';
@@ -48,9 +49,12 @@ function CreatorStream({ streamName }: { streamName: string }) {
 		// @ts-ignore
 		const session = client.cast(stream.current, streamData.streamKey);
 
-		session.on('open', () => {
+		session.on('open', async () => {
 			console.log('Stream started.');
 			alert('Stream started; visit Livepeer Dashboard.');
+			//creates an empty comments array
+			await db.init();
+			await db.set([], 'live-stream-comment', streamData.playbackId);
 		});
 
 		session.on('close', () => {
@@ -90,12 +94,12 @@ function CreatorStream({ streamName }: { streamName: string }) {
 						ref={videoEl}
 					/>
 					<div className="hidden md:block md:absolute right-0 top-0 z-50 md:w-[40%] xl:w-[30%] h-full transition-all">
-						<Chat isCreator />
+						<Chat isCreator liveStreamId={streamData?.playbackId} />
 					</div>
 				</div>
 			</div>
 			<div className="md:hidden block mt-10 pb-32 z-50 w-full h-[45rem]">
-				<Chat isCreator />
+				<Chat isCreator liveStreamId={streamData?.playbackId} />
 			</div>
 			<StreamingFooter />
 		</div>

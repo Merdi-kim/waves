@@ -2,27 +2,20 @@ import db from '@/lib/weaveDB';
 
 export type Message = {
 	fromName: string;
-	toName: string;
 	message: string;
-	liveStreamId: string;
 };
 
 class LiveStreamService {
-	// constructor() {
-	// 	(async () => {
-	//
-	// 	})();
-	// }
-
 	async setMessage({
 		messageToSend,
+		liveStreamId,
 	}: {
 		messageToSend: Message;
+		liveStreamId: string;
 	}): Promise<{ error?: any } | undefined> {
 		try {
-			console.log(messageToSend);
 			await db.init();
-			await db.add(messageToSend, 'live-stream-comment');
+			await db.update(messageToSend, 'live-stream-comment', liveStreamId);
 		} catch (e) {
 			return {
 				error: e,

@@ -3,6 +3,8 @@ import { RiSendPlane2Line } from 'react-icons/ri';
 import { MdOutlineClose } from 'react-icons/md';
 import { useCallback, useEffect, useState } from 'react';
 import liveStreamService, { Message } from '@/utils/liveStreamService';
+import { useRecoilValue } from 'recoil';
+import { selectedHandle } from '@/lib/recoil';
 
 function Chat({
 	isCreator = false,
@@ -13,21 +15,21 @@ function Chat({
 }) {
 	const [conversation, setConversation] = useState<Message[]>([]);
 	const [inputMessage, setInputMessage] = useState<string>('');
+	const user = useRecoilValue(selectedHandle);
 
 	const updateConversation = async () => {
 		const messageToSet: Message = {
-			fromName: 'JohnDoe',
-			liveStreamId: liveStreamId || '',
+			fromName: user || 'unknown',
 			message: inputMessage,
-			toName: 'John Doe',
 		};
-		setConversation((prev) => [...prev, messageToSet]);
 		setInputMessage('');
 
 		// save the message to waveDB
 		const err = await liveStreamService.setMessage({
 			messageToSend: messageToSet,
+			liveStreamId: liveStreamId!,
 		});
+		setConversation((prev) => [...prev, messageToSet]);
 		console.log({ err });
 	};
 
