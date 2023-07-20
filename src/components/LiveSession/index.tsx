@@ -6,7 +6,7 @@ function LiveSession({ streams }: { streams: any }) {
 			{streams?.length > 0 && (
 				<h1 className="text-3xl font-bold mb-10">Live Channels</h1>
 			)}
-			<div className="grid grid-cols-3 gap-3 gap-y-10">
+			<div className="grid grid-cols-3 gap-3 gap-y-10 overflow-scroll px-4">
 				{streams?.map((live: any, index: number) => (
 					<LiveChannelCard
 						key={`live-channel-${index}`}

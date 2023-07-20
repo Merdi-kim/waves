@@ -20,34 +20,24 @@ const LiveChannelCard: FC<LiveProps> = (props) => {
 	return (
 		<div
 			onClick={goToLiveStream}
-			className="bg-slate-900 h-fit w-fit flex flex-col gap-6 rounded-3xl cursor-pointer"
+			className="bg-slate-200 h-fit min-w-[350px] flex flex-col gap-2 rounded-3xl p-2 cursor-pointer"
 		>
-			<div className="relative max-w-96 min-w-fit h-56 rounded-t-3xl">
+			<div className="flex justify-between px-2">
 				<Image
 					src="/assets/dummy/profile-1.png"
-					fill
-					alt={title}
-					className="rounded-t-3xl object-cover"
+					alt="profile"
+					width={50}
+					height={50}
+					className="rounded-full"
 				/>
-			</div>
-			<div className="flex flex-col gap-5 px-5">
-				<h2 className="text-2xl font-extrabold leading-6">{title}</h2>
-				<div className="flex gap-3 items-center">
-					<Image
-						src="/assets/dummy/profile-1.png"
-						alt="profile"
-						width={50}
-						height={50}
-						className="rounded-full"
-					/>
+				<div className="flex items-center bg-primary h-7 px-2 py-3 rounded-3xl">
+					<FaWifi className="w-6 h-6 mr-2" />
+					<span>Live</span>
 				</div>
 			</div>
-			<div className="flex justify-between items-center px-5 pb-5">
-				<div className="flex gap-2 bg-primary px-5 py-2 rounded-3xl">
-					<FaWifi className="w-6 h-6" />
-					<p>Live</p>
-				</div>
-			</div>
+			<h2 className="text-xl w-full text-center font-semibold leading-6">
+				{title}
+			</h2>
 		</div>
 	);
 };
