@@ -24,7 +24,7 @@ function ProfileDetails({
 	};
 
 	return (
-		<div className="absolute top-0 right-0 m-2 flex flex-col p-2 bg-neutral-600 shadow-xl rounded-lg z-10">
+		<div className="absolute top-0 right-0 m-2 flex flex-col p-2 bg-white shadow-xl rounded-lg z-10">
 			<div className="flex items-center justify-end">
 				<Image
 					height={20}
@@ -62,7 +62,7 @@ function ProfileDetails({
 			<div className="flex justify-center mt-8">
 				<button
 					onClick={logout}
-					className="w-[250px] h-6 rounded-lg mb-3 text-red-500 font-bold bg-slate-400 hover:bg-slate-500 "
+					className="w-[250px] h-6 rounded-lg mb-3 text-red-500 font-bold bg-slate-200 hover:bg-slate-400 "
 				>
 					Log out
 				</button>

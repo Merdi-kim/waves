@@ -34,7 +34,6 @@ const page = ({ params }: { params: { playbackId: string } }) => {
 
 	return (
 		<LivepeerConfig client={client} theme={livepeerTheme}>
-
 			<RecoilRoot>
 				<div className="h-screen overflow-hidden">
 					<div className="justify-between flex items-center px-10 w-full pt-10">
@@ -61,7 +60,7 @@ const page = ({ params }: { params: { playbackId: string } }) => {
 						<div className="col-span-8 row-span-5 h-full w-full flex items-center rounded-2xl overflow-hidden">
 							<Player
 								title="Waterfalls"
-								playbackId= {params.playbackId}
+								playbackId={params.playbackId}
 								autoPlay
 								showTitle={false}
 								showPipButton

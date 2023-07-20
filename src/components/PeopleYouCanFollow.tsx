@@ -48,7 +48,6 @@ function PeopleYouCanFollow() {
 								</button>
 								<p className="font-extrabold text-sm pl-2">
 									23k <span className="font-normal">Followers</span>
-
 								</p>
 							</div>
 						</div>
