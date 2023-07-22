@@ -1,21 +1,34 @@
+'use client';
 import Footer from '@/components/Footer';
-import Button from '@/components/ui/Button';
 import Image from 'next/image';
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 export default function Home() {
+	const router = useRouter();
+
 	return (
 		<main>
 			<div className="bg-[url('/assets/hero-bg.svg')] bg-opacity-30 bg-no-repeat bg-center bg-cover h-fit">
 				<div className="h-36 w-full flex items-center justify-between max-w-[1140px] mx-auto">
 					<div className="font-extrabold text-4xl">
-						<h1>WAVE</h1>
+						<h1 onClick={() => router.push('/')}>WAVE</h1>
 					</div>
 
 					<div className="flex gap-5 items-center font-bold">
-						<span className="cursor-pointer">Home</span>
-						<span className="cursor-pointer">About</span>
-						<span className="cursor-pointer">Contact</span>
-						<button className="bg-[#BF1A1A] font-bold text-normal text-white rounded-3xl py-2 px-3">
+						<Link href="/home" className="cursor-pointer">
+							Home
+						</Link>
+						<Link href="#" className="cursor-pointer">
+							About
+						</Link>
+						<Link href="#contact" className="cursor-pointer">
+							Contact
+						</Link>
+						<button
+							onClick={() => router.push('/home')}
+							className="bg-[#BF1A1A] font-bold text-normal text-white rounded-3xl py-2 px-3"
+						>
 							Try for Free
 						</button>
 					</div>
@@ -37,7 +50,10 @@ export default function Home() {
 										uncensored content from creators worldwide. Join us today
 										and experience true freedom in streaming.
 									</p>
-									<button className="bg-[#BF1A1A] font-bold text-normal text-white rounded-3xl py-2 px-3 mt-10">
+									<button
+										onClick={() => router.push('/home')}
+										className="bg-[#BF1A1A] font-bold text-normal text-white rounded-3xl py-2 px-3 mt-10"
+									>
 										Get started now
 									</button>
 								</div>
@@ -61,86 +77,132 @@ export default function Home() {
 					</div>
 				</div>
 			</div>
-			<div className="flex flex-col items-center w-full mt-20">
-				<div className="w-11/12 md:w-9/12 lg:w-6/12 flex items-center my-4">
-					<div className="w-5/6">
-						<h3 className="text-2xl font-bold mb-4">
-							A virtual stage for everything
-						</h3>
-						<p className="text-sm">
-							Step into our virtual world and experience the thrill of live
-							performances, exhibitions, workshops, and so much more, all from
-							the comfort of your own home. No longer limited by physical
-							boundaries, our virtual stage breaks down barriers and brings
-							people together from every corner of the globe.
-						</p>
-					</div>
-				</div>
-				<div className="w-11/12 md:w-9/12 lg:w-6/12 flex items-center my-4">
-					<div className="w-5/6">
-						<h3 className="text-2xl font-bold mb-4">
-							Encrypted chat on-demand
-						</h3>
-						<p className="text-sm">
-							SEnd-to-end encryption guarantees that only you and the intended
-							recipients can access the messages exchanged. This means that not
-							even our platform administrators or any third parties can decipher
-							or intercept your communications. Your data remains confidential
-							and inaccessible to anyone else.
-						</p>
-					</div>
-				</div>
-				<div className="w-11/12 md:w-9/12 lg:w-6/12 flex items-center my-4">
-					<div className="w-5/6">
-						<h3 className="text-2xl font-bold mb-4">
-							Follow the creators you love
-						</h3>
-						<p className="text-sm">
-							Our platform is designed to foster a symbiotic relationship
-							between creators and their fans, cultivating a vibrant ecosystem
-							where creativity thrives. Together, we celebrate the power of art
-							and honor the journeys of those who bring it to life.
-						</p>
-					</div>
-					<Image
-						height={200}
-						width={200}
-						src="/assets/undraw1.svg"
-						alt=""
-						className="w-[200px] h-[200px] m-2"
-					/>
-				</div>
-				<div className="w-11/12 md:w-9/12 lg:w-6/12 flex items-center my-4">
-					<Image
-						height={200}
-						width={200}
-						src="/assets/undraw1.svg"
-						alt=""
-						className="w-[200px] h-[200px] m-2"
-					/>
-					<div className="w-5/6">
-						<h3 className="text-2xl font-bold mb-4">In live merch</h3>
-						<p className="text-sm">
-							Immerse yourself in the live stream and explore the merchandise
-							offerings seamlessly, all within the same app. No need to navigate
-							to external websites or wait for separate purchasing processes.
-							It's a convenient and integrated shopping experience designed to
-							enhance your enjoyment while supporting the creators you love.
-						</p>
+			<div className="relative w-full h-fit">
+				<Image
+					src="/assets/hero-bg.svg"
+					alt="hero-bg"
+					fill
+					className="object-cover"
+				/>
+				<div className="w-full h-fit backdrop-blur-lg">
+					<div className="max-w-[1140px] mx-auto py-32">
+						<h1 className="uppercase text-5xl font-bold text-center">
+							How does it work?
+						</h1>
+						<div className="flex justify-between mt-32">
+							<div className="flex flex-col justify-center items-center gap-7">
+								<Image
+									src="/assets/sign-up.svg"
+									alt="sign-vector"
+									width={100}
+									height={100}
+								/>
+								<div className="max-w-[250px] text-center">
+									<p className="font-bold mb-5">Sign up</p>
+									<p>It&apos;s simple to sign up with a few simple stampes</p>
+								</div>
+							</div>
+
+							<div className="flex flex-col justify-center items-center gap-7">
+								<Image
+									src="/assets/air-play.svg"
+									alt="sign-vector"
+									width={100}
+									height={100}
+								/>
+								<div className="max-w-[250px] text-center">
+									<p className="font-bold mb-5">Stream</p>
+									<p>Stream videos of your liking and enjoy for free</p>
+								</div>
+							</div>
+							<div className="flex flex-col justify-center items-center gap-7">
+								<Image
+									src="/assets/Upload.svg"
+									alt="sign-vector"
+									width={100}
+									height={100}
+								/>
+								<div className="max-w-[200px] text-center">
+									<p className="font-bold mb-5">Upload videos</p>
+									<p>Upload videos for your audience</p>
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
-			<div className="h-40 w-full flex items-center justify-center">
-				<button className="w-44 h-8 mx-4 bg-blue-950 text-white hover:border-2 hover:border-blue-950 hover:bg-white hover:text-black ">
-					Try it today
-				</button>
+			<div>
+				<div className="flex justify-between items-center py-32 max-w-[1140px] mx-auto">
+					<p className="flex flex-col gap-10">
+						<span className="text-5xl font-bold">
+							MAKE THE RIGHT
+							<br /> MOVE,
+						</span>
+						<span className="text-2xl">
+							With simplified steps this is the right move
+						</span>
+					</p>
+					<button className="bg-[#BF1A1A] font-bold text-normal text-white rounded-3xl py-3 px-10 mt-10">
+						Get started now
+					</button>
+				</div>
 			</div>
-			<div className="h-52 w-full bg-blue-100" />
-			<div className="w-full flex justify-center h-fit max-w-[100rem] gap-5 mx-auto px-5">
-				<Button variant="primary" title="Try" />
-				<Button variant="secondary" title="Learn more" />
+			<div className="relative w-full h-fit">
+				<Image
+					src="/assets/hero-bg.svg"
+					alt="hero-bg"
+					fill
+					className="object-cover"
+				/>
+				<div className="w-full h-fit backdrop-blur-lg">
+					<div className="max-w-[1140px] mx-auto py-32">
+						<h1 className="text-5xl font-bold text-center">
+							Watch All your Best
+						</h1>
+						<div className="relative h-[514px] max-w-[1088px] w-auto mt-12">
+							<Image src="/assets/show-all.png" alt="show all" fill />
+						</div>
+					</div>
+				</div>
 			</div>
-			<div className="h-2/5 bg-[url('/assets/wave.svg')] bg-cover mt-5 gap-4" />
+
+			<div className="w-full h-fit">
+				<div className="max-w-[1140px] mx-auto py-32">
+					<h1 className="uppercase text-5xl font-bold text-center">Why wave</h1>
+					<div className="bg-gray-100 rounded-3xl p-10 mt-10 grid grid-cols-3 gap-20">
+						<div className="text-center">
+							<h3 className="font-bold text-3xl mb-5">Live Streaming</h3>
+							<p>
+								Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+							</p>
+						</div>
+						<div className="text-center">
+							<h3 className="font-bold text-3xl mb-5">In Live Mesh</h3>
+							<p>
+								Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+							</p>
+						</div>
+						<div className="text-center">
+							<h3 className="font-bold text-3xl mb-5">Storage for everthing</h3>
+							<p>
+								Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+							</p>
+						</div>
+						<div className="text-center">
+							<h3 className="font-bold text-3xl mb-5">Chat on demand</h3>
+							<p>
+								Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+							</p>
+						</div>
+						<div className="text-center">
+							<h3 className="font-bold text-3xl mb-5">Follow Friends</h3>
+							<p>
+								Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
 			<Footer />
 		</main>
 	);
