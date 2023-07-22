@@ -5,7 +5,7 @@ import Image from 'next/image';
 export default function Home() {
 	return (
 		<main>
-			<div className="bg-[url('/assets/hero-bg.svg')] bg-opacity-30">
+			<div className="bg-[url('/assets/hero-bg.svg')] bg-opacity-30 bg-no-repeat bg-center bg-cover h-fit">
 				<div className="h-36 w-full flex items-center justify-between max-w-[1140px] mx-auto">
 					<div className="font-extrabold text-4xl">
 						<h1>WAVE</h1>
@@ -21,22 +21,27 @@ export default function Home() {
 					</div>
 				</div>
 
-				<div className="h-[calc(100vh-9rem)] max-w-[1140px] mx-auto">
+				<div className="max-w-[1140px] mx-auto">
 					<div className="h-3/5 py-20 max-w-[100rem] mx-auto px-5 relative">
 						<div>
 							<h2 className="w-4/5 font-extrabold text-6xl mb-12 text-left">
 								Censorship-resistant video streaming platform
 							</h2>
-							<div className="">
-								<p>
-									Say goodbye to content restrictions and enjoy uninterrupted
-									streaming. Our platform utilizes advanced encryption and
-									decentralized technology to ensure your privacy and freedom of
-									expression. Discover a wide range of diverse and uncensored
-									content from creators worldwide. Join us today and experience
-									true freedom in streaming.
-								</p>
-								<div className="flex">
+							<div className="grid grid-cols-2 gap-3">
+								<div>
+									<p>
+										Say goodbye to content restrictions and enjoy uninterrupted
+										streaming. Our platform utilizes advanced encryption and
+										decentralized technology to ensure your privacy and freedom
+										of expression. Discover a wide range of diverse and
+										uncensored content from creators worldwide. Join us today
+										and experience true freedom in streaming.
+									</p>
+									<button className="bg-[#BF1A1A] font-bold text-normal text-white rounded-3xl py-2 px-3 mt-10">
+										Get started now
+									</button>
+								</div>
+								<div className="flex -mt-20">
 									<Image
 										src="/assets/comment-streaming-1.png"
 										alt="streaming demo"
@@ -48,7 +53,7 @@ export default function Home() {
 										alt="streaming demo"
 										width={400}
 										height={250}
-										className="-ml-24"
+										className="-ml-32"
 									/>
 								</div>
 							</div>
