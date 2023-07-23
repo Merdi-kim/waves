@@ -8,6 +8,7 @@ function LensProfile({ profile }: { profile: any }) {
 		<div
 			onClick={() => setProfileData(profile)}
 			className={`flex-none flex items-center justify-center h-8 min-w-[150px] px-2 m-4 rounded-lg ${
+				// @ts-ignore
 				profile.handle == profileData?.handle
 					? 'bg-neutral-600 border-[1px] border-white'
 					: 'bg-neutral-700'

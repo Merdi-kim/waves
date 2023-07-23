@@ -21,7 +21,7 @@ function Navbar({
 }) {
 	const [showProfileDetails, setShowProfileDetails] = useState(false);
 	const [, setLensProfiles] = useRecoilState(lensProfiles);
-	const profile = useRecoilValue(selectedHandle);
+	const profile: any = useRecoilValue(selectedHandle);
 	let profilePicture = '/assets/dummy/fakeProfile.jpeg';
 	if (profile != null) {
 		profilePicture = formatPicture(profile?.picture);
@@ -117,8 +117,8 @@ function Navbar({
 			</div>
 			{showProfileDetails && (
 				<ProfileDetails
-					handle={profile.handle}
-					stats={profile.stats}
+					handle={profile?.handle}
+					stats={profile?.stats}
 					profilePicture={profilePicture}
 					setShowProfileDetails={setShowProfileDetails}
 				/>

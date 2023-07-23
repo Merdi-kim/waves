@@ -19,7 +19,7 @@ function Chat({
 
 	const updateConversation = async () => {
 		const messageToSet: Message = {
-			fromName: user || 'unknown',
+			fromName: user || 'unknown user',
 			message: inputMessage,
 		};
 		setInputMessage('');
@@ -63,7 +63,7 @@ function Chat({
 				{conversation?.map((message, index) => (
 					<div
 						key={`live-stream-conversation-${index}`}
-						className="bg-black border border-primary/20 w-fit p-2 rounded-2xl flex flex-col gap-1.5"
+						className="bg-slate-300 border border-primary/20 w-fit p-2 rounded-2xl flex flex-col gap-1.5"
 					>
 						<span className="text-sm font-bold">{message.fromName}</span>
 						{message.message}

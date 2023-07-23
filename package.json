@@ -55,5 +55,8 @@
 	"lint-staged": {
 		"*.{js, ts}": "eslint --cache --fix",
 		"*.{js,css,md,html,json}": "npm run format"
+	},
+	"engines": {
+		"node": "16.x"
 	}
 }

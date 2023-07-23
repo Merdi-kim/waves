@@ -29,7 +29,7 @@ const livepeerTheme: ThemeConfig = {
 	},
 };
 
-const page = ({ params }: { params: { playbackId: string } }) => {
+const Stream = ({ params }: { params: { playbackId: string } }) => {
 	const router = useRouter();
 
 	return (
@@ -77,4 +77,4 @@ const page = ({ params }: { params: { playbackId: string } }) => {
 	);
 };
 
-export default page;
+export default Stream;

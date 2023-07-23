@@ -34,6 +34,7 @@ const Button: FC<ButtonProps> = ({ ...props }) => {
 	);
 
 	return (
+		// @ts-ignore
 		<div {...rest} className={buttonClassname}>
 			{title}
 		</div>
