@@ -1,36 +1,75 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Livestreaming Application with Livepeer, WeaveDB, Arweave and LensProtocol
 
-## Getting Started
+## Table of Contents
 
-First, run the development server:
+- [Introduction](#introduction)
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Installation](#installation)
+- [Configuration](#configuration)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+## Introduction
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Welcome to our Livestreaming Application built with the powerful combination of Livepeer, WeaveDB, and LensProtocol. This application empowers users to create, manage, and broadcast live video streams seamlessly. Whether you want to host a live event, share your gaming sessions, or engage with your audience in real-time, our Livestreaming App has got you covered. By harnessing the capabilities of Livepeer for scalable and decentralized video streaming, WeaveDB for reliable and distributed data storage, and LensProtocol for enhanced interactivity, this application promises an immersive and delightful livestreaming experience.
+You can also upload reels that are less than 60 seconds
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Features
 
-[http://localhost:3000/api/hello](http://localhost:3000/api/hello) is an endpoint that uses [Route Handlers](https://beta.nextjs.org/docs/routing/route-handlers). This endpoint can be edited in `app/api/hello/route.ts`.
+- **User-friendly Interface**: The application boasts an intuitive and user-friendly interface, enabling both beginners and experienced users to navigate effortlessly.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- **Live Streaming**: Users can easily initiate live video streams and broadcast them to their audience in real-time.
 
-## Learn More
+- **Viewership Interaction**: The app incorporates LensProtocol, allowing viewers to interact with the streamer through real-time messaging and reactions.
 
-To learn more about Next.js, take a look at the following resources:
+- **Decentralized Video Streaming**: Powered by Livepeer, the application ensures high-quality video streaming through a decentralized network of nodes, enhancing scalability and reliability.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Persistent Data Storage**: WeaveDB facilitates distributed and persistent data storage, ensuring the availability of past streams and relevant information.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- **Chat Functionality**: Users can engage in live chat during streaming sessions, fostering community interaction.
 
-## Deploy on Vercel
+## Technologies Used
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+The Livestreaming Application leverages the following cutting-edge technologies:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- **Livepeer**: A decentralized video streaming protocol that ensures reliable, scalable, and cost-effective video delivery through a network of nodes.
+
+- **WeaveDB**: A distributed and decentralized database that provides reliable and persistent storage for all relevant livestreaming data.
+
+- **LensProtocol**: web3 social media base layer.
+
+- **Next.js**: The frontend is built using Next.js, ensuring a fast and responsive user interface.
+
+- **Arweave**: for storing all the reels
+
+## Installation
+
+Follow these steps to install and set up the Livestreaming Application on your local machine:
+
+1. Clone the repository
+
+2. Navigate to the project directory: `cd waves`.
+
+3. Install the necessary dependencies: `npm install`.
+
+## Configuration
+
+Before running the application, you need to configure certain settings:
+
+1. Set up your Livepeer account and obtain the required API keys.
+
+2. Configure WeaveDB to connect to your preferred distributed storage provider.
+
+3. Customize LensProtocol settings for the desired interactivity features.
+
+## Usage
+
+To start the Livestreaming Application, follow these steps:
+
+1. Launch the app: `npm run dev`.
+
+2. Access the application through your web browser: `http://localhost:3000`.
+
+Thank you for your interest in our Livestreaming Application! If you encounter any issues or have any questions, please don't hesitate to contact us. Happy livestreaming!
