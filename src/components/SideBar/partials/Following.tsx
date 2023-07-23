@@ -24,9 +24,7 @@ const Following: FC<FollowingProps> = (props) => {
 					alt={username}
 					className="rounded-full"
 				/>
-				<span className=" font-bold hidden md:block ">
-					{username}
-				</span>
+				<span className=" font-bold hidden md:block ">{username}</span>
 			</div>
 		</div>
 	);
