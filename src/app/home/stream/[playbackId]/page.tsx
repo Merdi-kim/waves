@@ -12,7 +12,6 @@ import {
 	studioProvider,
 } from '@livepeer/react';
 import { useRouter } from 'next/navigation';
-import { playbackID } from '@/lib/recoil';
 import { RecoilRoot } from 'recoil';
 
 const client = createReactClient({
