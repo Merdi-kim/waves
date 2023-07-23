@@ -166,7 +166,7 @@ export default function Home() {
 				</div>
 			</div>
 
-			<div className="w-full h-fit">
+			{/*<div className="w-full h-fit">
 				<div className="max-w-[1140px] mx-auto py-32">
 					<h1 className="uppercase text-5xl font-bold text-center">Why wave</h1>
 					<div className="bg-gray-100 rounded-3xl p-10 mt-10 grid grid-cols-3 gap-20">
@@ -202,7 +202,7 @@ export default function Home() {
 						</div>
 					</div>
 				</div>
-			</div>
+	        </div>*/}
 			<Footer />
 		</main>
 	);
