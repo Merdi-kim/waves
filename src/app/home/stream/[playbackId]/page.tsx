@@ -16,7 +16,7 @@ import { playbackID } from '@/lib/recoil';
 import { RecoilRoot } from 'recoil';
 
 const client = createReactClient({
-	provider: studioProvider({ apiKey: 'yourStudioApiKey' }),
+	provider: studioProvider({ apiKey: process.env.NEXT_PUBLIC_STUDIO_API_KEY! }),
 });
 
 const livepeerTheme: ThemeConfig = {
