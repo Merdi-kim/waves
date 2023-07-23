@@ -21,7 +21,7 @@ function Navbar({
 }) {
 	const [showProfileDetails, setShowProfileDetails] = useState(false);
 	const [, setLensProfiles] = useRecoilState(lensProfiles);
-	const profile:any = useRecoilValue(selectedHandle);
+	const profile: any = useRecoilValue(selectedHandle);
 	let profilePicture = '/assets/dummy/fakeProfile.jpeg';
 	if (profile != null) {
 		profilePicture = formatPicture(profile?.picture);
