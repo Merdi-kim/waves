@@ -42,7 +42,7 @@ function PeopleYouCanFollow() {
 		<div>
 			<h1 className="text-2xl font-extrabold mb-8">Artists You can follow</h1>
 
-			<Carousel responsive={responsive} className="bg-slate-950 p-2 rounded-lg">
+			<Carousel responsive={responsive} className=" p-2 rounded-lg">
 				{recommendedAccounts.slice(4, 9).map(({ picture, handle }, index) => (
 					<div
 						key={`follow-${index}`}
